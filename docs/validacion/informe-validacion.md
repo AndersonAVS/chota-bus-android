@@ -56,3 +56,9 @@ Los resultados finales y el registro Git se agregan al terminar las comprobacion
 - Hashes de documentos originales sin cambios; cero indicadores de secretos en la revision de archivos candidatos. La configuracion local de Firebase, Maps, PostgreSQL y SDK esta ignorada.
 
 casos-prueba.csv distingue pruebas aprobadas, simuladas, historicas y pendientes manuales. resultados.json conserva los conteos y limites para repetir la verificacion. Las guias antiguas corresponden a incrementos historicos; esta revision es el punto de entrada actual.
+
+## Registro del avance en Git
+
+El 13 de noviembre de 2026 se registro la integracion revisada desde Git Bash en la rama sprint/05-validacion-integracion, commit [235d8f6](https://github.com/AndersonAVS/chota-bus-android/commit/235d8f6). La rama se publico en origin y quedo configurada para seguimiento. No se fusiono con main ni se creo una solicitud de cambios automaticamente.
+
+Se incluyeron implementaciones de reservas, compra ficticia, emision/consulta de boletos, QR, historial, SQLite y la revision trazable. No se incluyeron google-services.json, secrets.properties, local.properties, backend/.env, node_modules ni artefactos build. No se fabrica una secuencia de commits historicos por sprint: esta entrega registra el estado integrado efectivamente validado. Este registro documental se guarda en un commit posterior al de integracion.
