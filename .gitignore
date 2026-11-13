@@ -17,6 +17,7 @@ local.properties
 # Archivos temporales de Kotlin
 .kotlin/
 .idea/
+q
 
 # Credenciales y archivos de firma
 .env
