@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chota_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Barra superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/chota_purple"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:id="@+id/btn_volver_recuperacion"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Volver al inicio de sesión"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="CHOTA BUS"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="1dp" />
+        </LinearLayout>
+
+        <!-- Ilustración provisional -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:importantForAccessibility="no"
+            android:text="✉"
+            android:textColor="@color/chota_purple"
+            android:textSize="80sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Recuperar contraseña"
+            android:textColor="@color/chota_purple"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="Ingresa el correo electrónico que utilizaste para crear tu cuenta."
+            android:textColor="@color/chota_muted"
+            android:textSize="16sp" />
+
+        <!-- Correo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:labelFor="@id/input_correo_recuperacion"
+            android:text="Correo electrónico"
+            android:textColor="@color/chota_text"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_correo_recuperacion"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:autofillHints="emailAddress"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="nombre@correo.com"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textColorHint="@color/chota_muted"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_enviar_recuperacion"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/chota_red"
+            android:text="Enviar instrucciones"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Se mostrará después de procesar la solicitud -->
+        <TextView
+            android:id="@+id/texto_confirmacion_recuperacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:accessibilityLiveRegion="polite"
+            android:background="#EFE7F3"
+            android:padding="16dp"
+            android:text="Si existe una cuenta asociada a este correo, recibirás instrucciones para restablecer tu contraseña. Revisa también la carpeta de spam."
+            android:textColor="@color/chota_purple"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_regresar_login"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/chota_purple"
+            android:text="Volver al inicio de sesión"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</ScrollView>

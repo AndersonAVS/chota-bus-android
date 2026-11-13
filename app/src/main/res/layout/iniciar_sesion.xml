@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chota_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="28dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="28dp"
+        android:paddingBottom="32dp">
+
+        <!-- Volver a bienvenida -->
+        <TextView
+            android:id="@+id/btn_volver_login"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:contentDescription="Volver a bienvenida"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="@color/chota_purple"
+            android:textSize="36sp" />
+
+        <!-- Marca -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="CHOTA BUS"
+            android:textColor="@color/chota_purple"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <View
+            android:layout_width="110dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/chota_yellow" />
+
+        <!-- Presentación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:gravity="center"
+            android:text="Bienvenido"
+            android:textColor="@color/chota_purple"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="Inicia sesión para comprar tus boletos y consultar tus viajes."
+            android:textColor="@color/chota_muted"
+            android:textSize="16sp" />
+
+        <!-- Correo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:labelFor="@id/input_correo_login"
+            android:text="Correo electrónico"
+            android:textColor="@color/chota_text"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_correo_login"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:autofillHints="emailAddress"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="nombre@correo.com"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textColorHint="@color/chota_muted"
+            android:textSize="16sp" />
+
+        <!-- Contraseña -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@id/input_contrasena_login"
+            android:text="Contraseña"
+            android:textColor="@color/chota_text"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_contrasena_login"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:autofillHints="password"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Ingresa tu contraseña"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textColorHint="@color/chota_muted"
+            android:textSize="16sp" />
+
+        <!-- Mostrar contraseña -->
+        <CheckBox
+            android:id="@+id/check_mostrar_contrasena"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:buttonTint="@color/chota_purple"
+            android:text="Mostrar contraseña"
+            android:textColor="@color/chota_muted"
+            android:textSize="14sp" />
+
+        <!-- Recuperación -->
+        <TextView
+            android:id="@+id/btn_recuperar_contrasena"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="end|center_vertical"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="@color/chota_purple"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Iniciar sesión -->
+        <Button
+            android:id="@+id/btn_iniciar_sesion"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="@color/chota_red"
+            android:text="Iniciar sesión"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <!-- Acceso al registro -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:gravity="center"
+            android:text="¿Todavía no tienes una cuenta?"
+            android:textColor="@color/chota_muted"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_ir_registro_login"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/chota_purple"
+            android:text="Crear cuenta"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chota_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Barra superior -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/chota_purple"
+            android:gravity="center"
+            android:text="CHOTA BUS"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Accesos a ambas pantallas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_tab_mis_boletos"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/chota_purple"
+                android:text="Mis boletos"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_ir_historial"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:text="Historial"
+                android:textAllCaps="false"
+                android:textColor="@color/chota_purple" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Tu próximo viaje"
+            android:textColor="@color/chota_text"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Consulta tu boleto y los datos de embarque."
+            android:textColor="@color/chota_muted"
+            android:textSize="15sp" />
+
+        <!-- Boleto de ejemplo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="CHOTA BUS"
+                    android:textColor="@color/chota_purple"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/texto_estado_boleto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/chota_yellow"
+                    android:padding="8dp"
+                    android:text="Vigente"
+                    android:textColor="@color/chota_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/texto_ruta_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Chota → Cajamarca"
+                android:textColor="@color/chota_text"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_fecha_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Fecha: 20 de noviembre de 2026"
+                android:textColor="@color/chota_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/texto_hora_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Salida: 06:00 · Llegada estimada: 08:45"
+                android:textColor="@color/chota_text"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#DED8E1" />
+
+            <TextView
+                android:id="@+id/texto_pasajero_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pasajero: María Torres"
+                android:textColor="@color/chota_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/texto_asiento_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Asiento: 2B"
+                android:textColor="@color/chota_purple"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Terminal de embarque"
+                android:textColor="@color/chota_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_embarque_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Jr. Eleodoro Benel 400, Chota"
+                android:textColor="@color/chota_muted"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Terminal de llegada"
+                android:textColor="@color/chota_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_llegada_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Jr. Puno 230, Cajamarca"
+                android:textColor="@color/chota_muted"
+                android:textSize="14sp" />
+
+            <!-- Espacio reservado para el QR real -->
+            <FrameLayout
+                android:id="@+id/contenedor_qr"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:background="#F1EDF3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="Espacio para\nel código QR"
+                    android:textColor="@color/chota_purple"
+                    android:textSize="15sp" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/texto_codigo_boleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Boleto de ejemplo: CB-00045821"
+                android:textColor="@color/chota_muted"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_descargar_boleto"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="@color/chota_red"
+            android:text="Descargar boleto"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_ver_terminal_boleto"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/chota_purple"
+            android:text="Ver punto de embarque"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</ScrollView>

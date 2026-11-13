@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chota_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Barra superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/chota_purple"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:id="@+id/btn_volver_compra"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Volver"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="CHOTA BUS"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="1dp" />
+        </LinearLayout>
+
+        <!-- Resumen del viaje -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/texto_ruta_compra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chota → Cajamarca"
+                android:textColor="@color/chota_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_fecha_compra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Fecha de viaje: por confirmar"
+                android:textColor="@color/chota_muted"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/texto_horario_compra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="06:00 – 08:45 · 2 h 45 min"
+                android:textColor="@color/chota_muted"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/texto_embarque_compra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Embarque: Jr. Eleodoro Benel 400, Chota"
+                android:textColor="@color/chota_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/texto_llegada_compra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Llegada: Jr. Puno 230, Cajamarca"
+                android:textColor="@color/chota_text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Selección de asiento -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Selecciona tu asiento"
+            android:textColor="@color/chota_text"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Elige un asiento para este pasajero."
+            android:textColor="@color/chota_muted"
+            android:textSize="14sp" />
+
+        <!-- Leyenda -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="#D9F0DE" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="12dp"
+                android:text="Libre"
+                android:textColor="@color/chota_text"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@color/chota_purple" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="12dp"
+                android:text="Elegido"
+                android:textColor="@color/chota_text"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="#D5D5D5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Ocupado"
+                android:textColor="@color/chota_text"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Distribución de ejemplo: debe adaptarse al vehículo real -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="FRENTE DEL VEHÍCULO"
+                android:textColor="@color/chota_muted"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Primera fila -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/asiento_1a"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D9F0DE"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="1A"
+                    android:textColor="@color/chota_text" />
+
+                <Button
+                    android:id="@+id/asiento_1b"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D9F0DE"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="1B"
+                    android:textColor="@color/chota_text" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/asiento_1c"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D9F0DE"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="1C"
+                    android:textColor="@color/chota_text" />
+
+                <Button
+                    android:id="@+id/asiento_1d"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D9F0DE"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="1D"
+                    android:textColor="@color/chota_text" />
+            </LinearLayout>
+
+            <!-- Segunda fila -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/asiento_2a"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D9F0DE"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="2A"
+                    android:textColor="@color/chota_text" />
+
+                <Button
+                    android:id="@+id/asiento_2b"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/chota_purple"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="2B"
+                    android:textColor="@color/white" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/asiento_2c"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D5D5D5"
+                    android:enabled="false"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="2C"
+                    android:textColor="@color/chota_muted" />
+
+                <Button
+                    android:id="@+id/asiento_2d"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D9F0DE"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:text="2D"
+                    android:textColor="@color/chota_text" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/texto_asiento_seleccionado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Asiento seleccionado: 2B"
+                android:textColor="@color/chota_purple"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Datos del pasajero -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Datos del pasajero"
+            android:textColor="@color/chota_text"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:labelFor="@id/input_nombre_pasajero"
+            android:text="Nombre completo"
+            android:textColor="@color/chota_text" />
+
+        <EditText
+            android:id="@+id/input_nombre_pasajero"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:autofillHints="name"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Nombres y apellidos"
+            android:inputType="textPersonName|textCapWords"
+            android:maxLines="1"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:labelFor="@id/input_dni_pasajero"
+            android:text="DNI"
+            android:textColor="@color/chota_text" />
+
+        <EditText
+            android:id="@+id/input_dni_pasajero"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Número de documento"
+            android:inputType="number"
+            android:maxLength="8"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:labelFor="@id/input_celular_pasajero"
+            android:text="Celular de contacto"
+            android:textColor="@color/chota_text" />
+
+        <EditText
+            android:id="@+id/input_celular_pasajero"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:autofillHints="phone"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Número de celular"
+            android:inputType="phone"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <!-- Resumen de compra -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resumen de compra"
+                android:textColor="@color/chota_text"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pasaje (1)"
+                    android:textColor="@color/chota_muted" />
+
+                <TextView
+                    android:id="@+id/texto_precio_pasaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/ 25.00"
+                    android:textColor="@color/chota_text" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:background="#DED8E1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total a pagar"
+                    android:textColor="@color/chota_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/texto_total_compra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/ 25.00"
+                    android:textColor="@color/chota_red"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_continuar_pago"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:text="Continuar al pago"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/chota_red" />
+
+    </LinearLayout>
+</ScrollView>

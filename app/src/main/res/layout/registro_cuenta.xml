@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chota_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Barra superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/chota_purple"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:id="@+id/btn_volver_registro"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Volver"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="CHOTA BUS"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="1dp" />
+        </LinearLayout>
+
+        <!-- Presentación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="Crear cuenta"
+            android:textColor="@color/chota_purple"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Regístrate para comprar tus boletos y consultar tus viajes."
+            android:textColor="@color/chota_muted"
+            android:textSize="15sp" />
+
+        <!-- Nombre completo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:labelFor="@id/input_nombre_registro"
+            android:text="Nombre completo"
+            android:textColor="@color/chota_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_nombre_registro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:autofillHints="name"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Nombres y apellidos"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName|textCapWords"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <!-- DNI -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/input_dni_registro"
+            android:text="DNI"
+            android:textColor="@color/chota_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_dni_registro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Número de DNI"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="8"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <!-- Celular -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/input_celular_registro"
+            android:text="Número de celular"
+            android:textColor="@color/chota_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_celular_registro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:autofillHints="phone"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Ingresa tu celular"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <!-- Correo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/input_correo_registro"
+            android:text="Correo electrónico"
+            android:textColor="@color/chota_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_correo_registro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:autofillHints="emailAddress"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="nombre@correo.com"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <!-- Contraseña -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/input_contrasena_registro"
+            android:text="Contraseña"
+            android:textColor="@color/chota_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_contrasena_registro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:autofillHints="newPassword"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Crea una contraseña"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <!-- Confirmación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/input_confirmar_contrasena"
+            android:text="Confirmar contraseña"
+            android:textColor="@color/chota_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_confirmar_contrasena"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:autofillHints="newPassword"
+            android:backgroundTint="@color/chota_purple"
+            android:hint="Repite tu contraseña"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/chota_text"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/check_mostrar_contrasenas_registro"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:buttonTint="@color/chota_purple"
+            android:text="Mostrar contraseñas"
+            android:textColor="@color/chota_muted"
+            android:textSize="14sp" />
+
+        <!-- Aceptación -->
+        <CheckBox
+            android:id="@+id/check_aceptar_terminos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="8dp"
+            android:buttonTint="@color/chota_purple"
+            android:text="Acepto los Términos y Condiciones y la Política de Privacidad."
+            android:textColor="@color/chota_text"
+            android:textSize="14sp" />
+
+        <!-- Enlaces a documentos -->
+        <TextView
+            android:id="@+id/btn_ver_terminos"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:text="Ver Términos y Condiciones"
+            android:textColor="@color/chota_purple"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btn_ver_privacidad"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:text="Ver Política de Privacidad"
+            android:textColor="@color/chota_purple"
+            android:textSize="14sp" />
+
+        <!-- Crear cuenta -->
+        <Button
+            android:id="@+id/btn_crear_cuenta"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="@color/chota_red"
+            android:text="Crear cuenta"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btn_ir_login_registro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="¿Ya tienes cuenta? Iniciar sesión"
+            android:textColor="@color/chota_purple"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
