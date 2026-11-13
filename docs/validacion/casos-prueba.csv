@@ -1,0 +1,23 @@
+﻿Caso,Escenario,Entorno,Resultado,Alcance o limite
+CP01,Registro vacio,Telefono,APROBADO,Bloquea alta y marca campos; no crea cuenta
+CP02,Registro e ingreso con nuevas credenciales reales,Firebase real,PENDIENTE REPETICION MANUAL,Codigo y pruebas de coordinacion; evidencia historica informada por usuario
+CP03,Restaurar sesion existente,Telefono Firebase real,APROBADO,Inicio recuperado sin pedir ni imprimir contrasena
+CP04,Recibir correo y cambiar contrasena,Correo real,PENDIENTE MANUAL,No se envio correo en esta revision
+CP05,Editar perfil,Unitarias y evidencia historica,PARCIAL MANUAL,Validaciones y repositorio probados; nueva revision real de Firestore pendiente
+CP06,Buscar segun filtros y cupos reales,SQL aislado y telefono,APROBADO,Excluye salidas sin plazas para el grupo y muestra duracion
+CP07,Mapa embarque llegada y giro,Telefono Google Maps real,APROBADO,Mapa cargado; conserva llegada al recrear; Como llegar habilitado
+CP08,Dos reservas mismo asiento,SQL aislado,APROBADO,Una operacion gana; conflicto controlado
+CP09,Vencimiento de reserva,SQL aislado y unitarias,APROBADO,Libera cupo efectivo; no permite pagar
+CP10,Reservar y cancelar,Telefono API real,APROBADO,Cancela solo las reservas sinteticas que crea la prueba
+CP11,Pasajeros y resumen,Telefono API real,APROBADO,Datos ficticios; edicion y recreacion; cancelacion final
+CP12,Pago total y emision de boletos,SQL y HTTP aislados,APROBADO,No se debita cuenta personal
+CP13,Saldo insuficiente y doble intento,SQL aislado,APROBADO,No saldo negativo ni cargo repetido
+CP14,Fallo al emitir boletos,SQL aislado con fallo provocado,APROBADO,Rollback del cargo y de la confirmacion
+CP15,Detalle y QR,Unitarias y telefono,APROBADO,QR decodificado y marca de prueba; consulta no cobra
+CP16,Historial y paginacion,"SQL, HTTP y telefono",APROBADO,Una fila por reserva; sin confundir reservado con pagado
+CP17,Servicio no disponible y cache,Unitarias y SQLite telefono,APROBADO SIMULACION,Fallo de red simulado; consulta guardada sin inventario y seleccion deshabilitada
+CP18,SQLite CRUD persistencia y caducidad,Telefono base temporal,APROBADO,Crea lee reemplaza elimina; reabre y caduca 24h; base de prueba eliminada
+CP19,Consulta de otra cuenta,HTTP/SQL aislados y validacion de sesion,APROBADO ALCANCE LOCAL,Filtra propietario y rechaza cursor ajeno; reglas de nube no reauditas
+CP20,Conservar navegacion tras recreacion,Telefono,APROBADO,"Pasajeros, mapa, boletos, detalle QR e historial"
+CP21,Rendimiento funcional,Telefono USB una muestra,OBSERVACION,Inicio con sesion 2082 ms; busqueda 294 ms; no benchmark
+CP22,Integridad documentos maestros,Hashes SHA256,APROBADO,Todos los originales consultados permanecen sin cambios

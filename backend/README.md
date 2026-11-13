@@ -1,6 +1,6 @@
 # API local de Chota Bus — Sprint 3
 
-Este servidor conecta PostgreSQL con el futuro cliente Retrofit de Android. Firebase conserva autenticacion y perfiles. Esta entrega implementa salud, lectura de terminales y busqueda de salidas; reservas y pagos siguen pendientes.
+Este servidor conecta PostgreSQL con el futuro cliente Retrofit de Android. Firebase conserva autenticacion y perfiles. Esta entrega implementa catalogo publico y API autenticada de asientos, reservas, pasajeros y resumen; pagos y boletos siguen pendientes.
 
 ## Preparacion en Git Bash
 
@@ -43,3 +43,24 @@ Abrir `backend/sql/002_datos_demo.sql` en Query Tool de pgAdmin, conectado a cho
 La ultima consulta devuelve fecha_de_prueba. Usar ese valor en la URL de salidas; con Chota, Cajamarca y un pasajero deben aparecer dos salidas DEMO. Reiniciar `npm start` despues de modificar el codigo. La aplicacion Android aun no consume estos endpoints.
 
 Referencias: https://node-postgres.com/features/queries y https://www.postgresql.org/docs/current/functions-datetime.html
+
+
+## Sprint 4: modelo de reservas
+
+Se agregan sql/005_modelo_reservas.sql y sql/006_vehiculos_asientos_demo.sql. La reconstruccion del esquema inicial en una base vacia queda en sql/001_esquema_inicial.sql. Sobre la base existente no repetir 001; 005 se ejecuta una sola vez. Las reservas estan implementadas como operaciones SQL transaccionales, aun sin endpoints HTTP de escritura. La guia completa y las consultas para pgAdmin estan en ../docs/sprint-4-modelo-reservas.md.
+
+`npm run test:db` ejecuta las pruebas de concurrencia y restricciones en un esquema aislado de PostgreSQL, usando .env. No se incluyen en npm test, no crean reservas en public y limpian su propio esquema al finalizar. Mantener las credenciales locales fuera de Git.
+
+
+## API autenticada de reservas
+
+FIREBASE_PROJECT_ID=chota-bus en .env configura la verificacion del ID token con Firebase Admin. Reiniciar npm start para cargar el nuevo codigo. GET /api/v1/salidas/:id/asientos, POST /api/v1/reservas, GET /api/v1/reservas/:id y POST /api/v1/reservas/:id/cancelacion requieren Authorization: Bearer ID_TOKEN. El catalogo publico anterior sigue disponible. Un navegador sin token obtiene 401 en las rutas protegidas.
+
+No se usa una clave privada para esta verificacion de firma, audiencia y vencimiento; no se comprueba revocacion inmediata en este incremento. El contrato, idempotencia, errores, compatibilidad Node y limites de la verificacion estan en ../docs/sprint-4-api-reservas.md. No se aceptan UID ni precios enviados por Android. La integracion del cliente Android sigue pendiente.
+
+
+## Pasajeros y resumen
+
+La migracion sql/007_pasajeros_reserva.sql ya se aplico en la base local. Agrega pasajeros por asiento y una operacion de guardado atomica con propietario y vigencia verificados. PUT /api/v1/reservas/:id/pasajeros guarda el formulario completo; GET /api/v1/reservas/:id/resumen devuelve el resumen privado. No aceptar UID o precios del formulario y no registrar cuerpos que contengan datos personales. Los endpoints siguen requiriendo ID token Firebase.
+
+El cliente XML ya implementa formularios por asiento, validaciones, edicion y resumen con total SQL. Guia y evidencia: ../docs/sprint-4-pasajeros-resumen.md. Los siguientes pasos son pago verificado y boleto; guardar pasajeros no realiza cobros ni extiende el plazo de la reserva.

@@ -29,7 +29,8 @@ class RetrofitViajesRepository(private val api: ViajesApi) : ViajesRepository {
                 val id = dato.get("id").asInt
                 require(id > 0 && capacidad > 0 && dato.texto("moneda") == "PEN")
                 SalidaViaje(id, salida, llegada, precio, "PEN", capacidad,
-                    terminal(dato.getAsJsonObject("embarque")), terminal(dato.getAsJsonObject("llegada")))
+                    terminal(dato.getAsJsonObject("embarque")), terminal(dato.getAsJsonObject("llegada")),
+                    dato.get("asientos_libres")?.takeUnless { it.isJsonNull }?.asBigDecimal?.intValueExact()?.also { require(it in filtros.pasajeros..capacidad) })
             }
             Result.success(ResultadoViajes(salidas, json.get("hayMas").asBoolean))
         } catch (cancelacion: CancellationException) {

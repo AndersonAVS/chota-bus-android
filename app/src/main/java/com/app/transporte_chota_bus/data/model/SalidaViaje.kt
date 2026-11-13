@@ -7,6 +7,6 @@ data class TerminalViaje(
 )
 data class SalidaViaje(
     val id: Int, val salida: String, val llegada: String, val precio: String,
-    val moneda: String, val capacidad: Int, val embarque: TerminalViaje, val destino: TerminalViaje
+    val moneda: String, val capacidad: Int, val embarque: TerminalViaje, val destino: TerminalViaje, val asientosLibres: Int? = null
 )
-data class ResultadoViajes(val salidas: List<SalidaViaje>, val hayMas: Boolean)
+data class ResultadoViajes(val salidas: List<SalidaViaje>, val hayMas: Boolean, val desdeCache:Boolean=false, val guardadoEn:String?=null)

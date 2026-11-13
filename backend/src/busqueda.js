@@ -25,7 +25,7 @@ export function validarBusqueda(query) {
 // Consulta salidas futuras con parametros separados del SQL y horarios de America/Lima.
 export const SQL_SALIDAS = `
   SELECT s.id, s.ruta_id, s.fecha_hora_salida, s.fecha_hora_llegada,
-         s.precio::text AS precio, 'PEN' AS moneda, s.capacidad,
+         s.precio::text AS precio, 'PEN' AS moneda, s.capacidad, libres.asientos_libres,
          json_build_object('id', o.id, 'nombre', o.nombre, 'ciudad', o.ciudad,
            'direccion', o.direccion, 'latitud', o.latitud::double precision,
            'longitud', o.longitud::double precision) AS embarque,
@@ -36,11 +36,13 @@ export const SQL_SALIDAS = `
   JOIN rutas r ON r.id = s.ruta_id
   JOIN terminales o ON o.id = r.terminal_origen_id
   JOIN terminales d ON d.id = r.terminal_destino_id
+  JOIN LATERAL (SELECT count(*)::integer AS asientos_libres FROM disponibilidad_asientos da
+    WHERE da.salida_id=s.id AND da.disponible) libres ON TRUE
   WHERE lower(o.ciudad) = lower($1) AND lower(d.ciudad) = lower($2)
     AND o.activo AND d.activo AND r.activo AND s.estado = 'PROGRAMADA'
     AND s.fecha_hora_salida >= ($3::date::timestamp AT TIME ZONE 'America/Lima')
     AND s.fecha_hora_salida < (($3::date + 1)::timestamp AT TIME ZONE 'America/Lima')
-    AND s.fecha_hora_salida > CURRENT_TIMESTAMP AND s.capacidad >= $4
+    AND s.fecha_hora_salida > CURRENT_TIMESTAMP AND libres.asientos_libres >= $4
   ORDER BY s.fecha_hora_salida, s.id
   LIMIT 101
 `;

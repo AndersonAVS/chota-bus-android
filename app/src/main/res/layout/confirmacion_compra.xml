@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <!-- Estado confirmado del servidor: no conserva controles de pago o edicion. -->
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp"
+        android:text="@string/confirmacion_exito" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/chota_purple" android:accessibilityLiveRegion="polite" />
+    <TextView android:id="@+id/confirmacion_datos" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp"
+        android:background="@color/white" android:textColor="@color/chota_text" android:textSize="17sp" />
+    <TextView android:id="@+id/confirmacion_saldo" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp"
+        android:layout_marginTop="12dp" android:background="@color/white" android:textColor="@color/chota_purple" android:textSize="17sp" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp"
+        android:text="@string/boletos_aviso_prueba" android:textColor="@color/chota_muted" />
+    <Button android:id="@+id/btn_ver_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp"
+        android:text="@string/confirmacion_ver_boletos" android:textAllCaps="false" android:backgroundTint="@color/chota_red" android:textColor="@color/white" />
+    <Button android:id="@+id/btn_inicio_confirmacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+        android:text="@string/boletos_volver_inicio" android:textAllCaps="false" />
+</LinearLayout>

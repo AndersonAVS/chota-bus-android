@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/chota_background" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+        <!-- El detalle se obtiene nuevamente del servidor antes de generar el QR local. -->
+        <Button android:id="@+id/btn_volver_detalle_boleto" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/viaje_volver" android:textAllCaps="false" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:background="@color/chota_purple" android:text="@string/detalle_boleto_titulo" android:textColor="@color/white" android:textSize="23sp" android:textStyle="bold" android:accessibilityHeading="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:text="@string/boletos_aviso_prueba" android:textColor="@color/chota_purple" />
+        <ProgressBar android:id="@+id/progreso_detalle_boleto" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="center_horizontal" android:visibility="gone" />
+        <TextView android:id="@+id/error_detalle_boleto" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:textColor="@color/chota_red" android:accessibilityLiveRegion="polite" android:visibility="gone" />
+        <Button android:id="@+id/btn_actualizar_detalle_boleto" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/detalle_boleto_actualizar" android:textAllCaps="false" />
+        <Button android:id="@+id/btn_login_detalle_boleto" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/compra_iniciar_sesion" android:visibility="gone" />
+        <LinearLayout android:id="@+id/contenido_detalle_boleto" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <ImageView android:id="@+id/imagen_qr_boleto" android:layout_width="match_parent" android:layout_height="240dp" android:background="@color/white" android:scaleType="fitCenter" android:contentDescription="@string/detalle_boleto_qr_descripcion" />
+            <TextView android:id="@+id/aviso_qr_boleto" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:text="@string/detalle_boleto_qr_aviso" android:textColor="@color/chota_muted" />
+            <include layout="@layout/item_boleto_compra" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

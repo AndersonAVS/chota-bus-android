@@ -41,3 +41,5 @@ La integracion posterior del mapa de terminales se documenta en mapa-terminal.md
 Ejecutar :app:testDebugUnitTest y :app:assembleDebug. Las nuevas pruebas cubren filtros, conservacion de formulario, estados del ViewModel y peticiones Retrofit/JSON con MockWebServer. No modifican cuentas ni compras. La verificacion manual por USB requiere un dispositivo autorizado y el servidor ejecutandose.
 
 Referencias: https://square.github.io/retrofit/ y https://developer.android.com/privacy-and-security/security-config y https://developer.android.com/studio/write/java8-support
+
+Actualizacion de validacion: la [revision integral](validacion/informe-validacion.md) incorpora cupos reales en busqueda, duracion estimada y SQLite para consultas publicas de solo lectura ante fallo del servicio. DataStore conserva las preferencias; la cache no permite reservar ni comprar.

@@ -1,0 +1,13 @@
+﻿Semana,Actividad,Estado real,Evidencia,Pendiente o ajuste
+1,Investigacion y ODS12,PENDIENTE EVIDENCIA,Maestro contiene bibliografia pero no evidencia especifica ODS12 ni papers revisados en esta auditoria,Agregar fuentes verificadas y relacion ODS12 sin inventar resultados
+2,Problema usuario y stack,IMPLEMENTADO CON EVIDENCIA,Maestro problema/roles; app Kotlin MVVM XML; REST y Firebase,XML permitido por profesor segun respuesta del usuario
+3,Restricciones y marketing etico,PARCIAL,"Validaciones, manejo de errores y privilegio minimo",Falta investigacion de marketing irresponsable y evaluacion formal de accesibilidad/rendimiento
+4,Backlog reglas criterios ODS12,PARCIAL,20 historias en Word; matrices y pruebas actuales,Falta especificar criterio ODS12 medible y evidencia del Product Backlog priorizado original
+5,Sprints MVVM datos locales,IMPLEMENTADO TECNICO,EDT cinco sprints; MVVM Repository DataStore y SQLite,No reconstruir ceremonias Scrum como hechos no documentados
+6,Interfaz y navegacion,IMPLEMENTADO CON AJUSTE,XML y Kotlin; pruebas de recreacion,"Profesor permite XML, respuesta explicita del usuario"
+7,DataStore SQLite/Room Repository,CORREGIDO Y PROBADO,Preferencias DataStore; CacheViajesSqlite CRUD y persistencia; prueba telefono,Cache publica de consultas 24h y max20; no cache de pagos ni datos personales
+8,REST endpoints JSON Retrofit,IMPLEMENTADO DEMO,"Contratos, Retrofit y pruebas HTTP",API productiva HTTPS pendiente
+9,CRUD REST errores conectividad,PARCIAL,POST reserva; GET; PUT pasajeros; cancelacion logica,No existe DELETE fisico ni CRUD administrativo; confirmar criterio academico sin eliminar compras por cumplir verbo HTTP
+10,Firebase Auth Firestore,IMPLEMENTADO DEMO,Auth; perfiles propios Firestore y reglas,Recuperacion por correo entrega manual no repetida
+11,Google Maps permisos privacidad,IMPLEMENTADO DEMO,Mapa nativo con terminales; sin pedir GPS personal,Direcciones postales definitivas pendientes
+12,Integracion pruebas optimizacion,PARCIAL,Suites Android HTTP SQL y dispositivo; correcciones de cache/cupos,"Faltan pendientes de calidad, investigacion y produccion listados"

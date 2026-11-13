@@ -20,11 +20,20 @@ import kotlinx.coroutines.launch
 
 class RegistroFragment : Fragment(R.layout.registro_cuenta) {
 
+    override fun onDestroyView(){aviso?.dismiss();aviso=null;super.onDestroyView()}
+    private var aviso:android.app.AlertDialog?=null
     private val viewModel: RegistroViewModel by viewModels { AutenticacionViewModelFactory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Informa el estado de los documentos de la demostracion, sin inventar politicas oficiales.
+        for(id in listOf(R.id.btn_ver_terminos,R.id.btn_ver_privacidad))view.findViewById<TextView>(id).setOnClickListener{
+            aviso?.dismiss()
+            aviso=android.app.AlertDialog.Builder(requireContext()).setTitle((it as TextView).text)
+                .setMessage(R.string.registro_documentos_pendientes).setPositiveButton(android.R.string.ok,null).show()
+        }
+        if(com.app.transporte_chota_bus.BuildConfig.DEBUG)view.findViewById<CheckBox>(R.id.check_aceptar_terminos).setText(R.string.registro_aceptacion_demo)
         // Relaciona los componentes del formulario con sus campos de validación.
         val nombre = view.findViewById<EditText>(R.id.input_nombre_registro)
         val dni = view.findViewById<EditText>(R.id.input_dni_registro)

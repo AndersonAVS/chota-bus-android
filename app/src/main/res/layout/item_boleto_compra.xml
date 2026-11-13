@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="16dp" android:background="@color/white">
+    <!-- Copia emitida del pasajero, asiento y viaje. -->
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/boletos_encabezado" android:textColor="@color/chota_purple" android:textStyle="bold" android:textSize="20sp" android:accessibilityHeading="true" />
+    <TextView android:id="@+id/boleto_codigo" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:fontFamily="monospace" android:textColor="@color/chota_text" android:textSize="14sp" />
+    <TextView android:id="@+id/boleto_persona" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="12dp" android:textColor="@color/chota_text" android:textSize="17sp" />
+    <TextView android:id="@+id/boleto_viaje" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="12dp" android:textColor="@color/chota_text" android:textSize="16sp" />
+    <TextView android:id="@+id/boleto_importe" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="12dp" android:textColor="@color/chota_red" android:textSize="23sp" android:textStyle="bold" />
+    <TextView android:id="@+id/boleto_emision" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="12dp" android:textColor="@color/chota_muted" />
+    <TextView android:id="@+id/boleto_recuperado" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:text="@string/boletos_recuperado" android:textColor="@color/chota_muted" android:visibility="gone" />
+</LinearLayout>

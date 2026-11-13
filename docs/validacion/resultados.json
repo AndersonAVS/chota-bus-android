@@ -1,0 +1,20 @@
+{
+  "fecha": "2026-11-13",
+  "android_unitarias": 180,
+  "android_fallos": 0,
+  "servidor_unitarias_http": 89,
+  "postgresql_http_aisladas": 52,
+  "dispositivo_sqlite": 1,
+  "dispositivo_flujo": 8,
+  "compilacion": "assembleDebug y assembleDebugAndroidTest aprobados",
+  "lint": "sin errores; advertencias previas conservadas",
+  "tiempos": {
+    "inicio_con_sesion_ms": 2082,
+    "busqueda_usb_ms": 294,
+    "muestras": 1,
+    "alcance": "muestra funcional, no benchmark de produccion"
+  },
+  "fuentes_originales": "hashes sin cambios",
+  "secretos": "0 indicadores detectados; archivos locales sensibles ignorados",
+  "alcance": "Demostracion local. No certifica produccion, envio de correos ni todas las condiciones de rendimiento."
+}

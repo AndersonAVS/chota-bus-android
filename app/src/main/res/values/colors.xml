@@ -13,4 +13,6 @@
     <color name="chota_background">#FFF9F5</color>
     <color name="chota_text">#29232D</color>
     <color name="chota_muted">#756E78</color>
+    <color name="asiento_libre">#D9F0DE</color>
+    <color name="asiento_ocupado">#D5D5D5</color>
 </resources>

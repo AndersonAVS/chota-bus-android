@@ -1,0 +1,31 @@
+{
+  "fecha": "2026-11-13",
+  "fuentes": [
+    {
+      "archivo": "DOCUMENTO DE REQUERIMIENTOS DE SOFTWARE.docx",
+      "sha256": "5f2268865f706a0097c0c5e9a13b9f373048a7d5985a1943095b773a49163604",
+      "uso": "solo lectura"
+    },
+    {
+      "archivo": "2026-2_ISC-Informe_Proyecto Final_Desarrollo de Aplicaciones Móviles.docx",
+      "sha256": "8bfba4a1786ea4fd53db7952a85c9ce315dae3369778422f444ca81b3bd9c2a8",
+      "uso": "solo lectura"
+    },
+    {
+      "archivo": "HISTORIAS DE USUARIO.docx",
+      "sha256": "9b1c6f2a6b4bdd0f43fa1769f9db6ac9a20369c2babb6ccec831e48be23fb122",
+      "uso": "solo lectura"
+    },
+    {
+      "archivo": "EDT.png",
+      "sha256": "5b5fcdafddd22df7560763c5776c236d5e49eddc67839dcd6479689f38c9981c",
+      "uso": "solo lectura"
+    },
+    {
+      "archivo": "Trabajo de Campo.txt",
+      "sha256": "308ebb84a1953af9973234ef281f46b900f55962dda467d9a009a314996244d5",
+      "uso": "solo lectura"
+    }
+  ],
+  "nota": "Los REQ/RNF del informe maestro y del documento de requisitos no tienen la misma numeracion; matrices usan el documento de requisitos como base y conservan cruce con maestro."
+}

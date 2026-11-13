@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/scroll_pasajeros"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/chota_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+        <!-- Cabecera, vigencia y estados compartidos del formulario y resumen. -->
+        <Button android:id="@+id/btn_volver_pasajeros" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:text="@string/viaje_volver" android:textAllCaps="false" />
+        <TextView android:id="@+id/titulo_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="16dp" android:background="@color/chota_purple" android:text="@string/pasajeros_titulo"
+            android:textColor="@color/white" android:textSize="23sp" android:textStyle="bold" android:accessibilityHeading="true" />
+        <TextView android:id="@+id/vigencia_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="12dp" android:textColor="@color/chota_purple" />
+        <ProgressBar android:id="@+id/progreso_pasajeros" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="center_horizontal" android:visibility="gone" />
+        <TextView android:id="@+id/error_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="8dp" android:textColor="@color/chota_red" android:visibility="gone" android:accessibilityLiveRegion="polite" />
+        <Button android:id="@+id/btn_login_pasajeros" android:layout_width="match_parent" android:layout_height="48dp" android:visibility="gone" android:text="@string/compra_iniciar_sesion" />
+        <Button android:id="@+id/btn_recargar_pasajeros" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/pasajeros_actualizar" android:textAllCaps="false" />
+        <LinearLayout android:id="@+id/panel_formulario_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pasajeros_instruccion" android:textColor="@color/chota_muted" />
+            <LinearLayout android:id="@+id/formularios_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+            <Button android:id="@+id/btn_guardar_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp"
+                android:layout_marginTop="16dp" android:text="@string/pasajeros_guardar" android:textAllCaps="false" android:backgroundTint="@color/chota_red" android:textColor="@color/white" />
+            <Button android:id="@+id/btn_ver_resumen" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+                android:text="@string/pasajeros_ver_resumen" android:textAllCaps="false" android:visibility="gone" />
+        </LinearLayout>
+        <include android:id="@+id/panel_confirmacion_compra" layout="@layout/confirmacion_compra" android:visibility="gone"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <include android:id="@+id/panel_resumen_compra" layout="@layout/resumen_compra" android:visibility="gone"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

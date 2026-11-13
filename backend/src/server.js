@@ -1,5 +1,6 @@
 import { crearPool } from './db.js';
 import { crearApp } from './app.js';
+import { crearVerificadorFirebase } from './autenticacion.js';
 
 // Verifica PostgreSQL antes de abrir el servidor local para las pruebas.
 let pool;
@@ -11,7 +12,7 @@ try {
   pool = crearPool();
   pool.on('error', () => console.error('Se interrumpio una conexion de PostgreSQL.'));
   await pool.query('SELECT 1');
-  const servidor = crearApp(pool).listen(puerto, '127.0.0.1', () => {
+  const servidor = crearApp(pool, { verificarToken: crearVerificadorFirebase() }).listen(puerto, '127.0.0.1', () => {
     console.log(`API local: http://127.0.0.1:${puerto}/api/v1/salud`);
   });
   servidor.on('error', async () => {

@@ -42,6 +42,13 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
             PerfilFragment.RESULTADO_ACTUALIZADO, viewLifecycleOwner
         ) { _, _ -> viewModel.consultarSesion() }
 
+        // Consulta todos los boletos propios sin depender de una compra recien realizada.
+        view.findViewById<View>(R.id.btn_mis_boletos).setOnClickListener{
+            (requireActivity() as MainActivity).abrirPantalla(com.app.transporte_chota_bus.ui.compra.MisBoletosFragment())
+        }
+        view.findViewById<View>(R.id.btn_historial).setOnClickListener{
+            (requireActivity() as MainActivity).abrirPantalla(com.app.transporte_chota_bus.ui.compra.HistorialComprasFragment())
+        }
         cerrar.setOnClickListener { viewModel.cerrarSesion() }
         reintentar.setOnClickListener { viewModel.consultarSesion() }
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp" android:background="@color/white">
+    <TextView android:id="@+id/mi_boleto_ruta" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/chota_purple" />
+    <TextView android:id="@+id/mi_boleto_salida" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textSize="16sp" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/mi_boleto_codigo" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textSize="13sp" android:textColor="@color/chota_muted" android:fontFamily="monospace" />
+    <Button android:id="@+id/btn_detalle_mi_boleto" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+        android:text="@string/mis_boletos_detalle" android:textAllCaps="false" android:backgroundTint="@color/chota_purple" android:textColor="@color/white" />
+</LinearLayout>

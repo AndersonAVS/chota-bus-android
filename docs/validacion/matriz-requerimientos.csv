@@ -1,0 +1,26 @@
+﻿REQ documento requisitos,REQ informe maestro,Historia,Criterio,Estado real,Evidencia,Limite o pendiente
+1,1,HU001,Registro de cuenta,IMPLEMENTADO DEMO,FirebaseAutenticacionRepository; RegistroFragment; ValidadorRegistroTest,Registro vacio y validaciones; alta real historica informada por usuario; no se crea otra cuenta en esta revision
+2,2,HU002,Inicio de sesion,IMPLEMENTADO DEMO,LoginFragment; AutenticacionViewModelsTest; pruebas telefono con sesion real,No se solicitan ni reutilizan contrasenas personales en pruebas automatizadas
+3,3,HU003,Recuperacion de contrasena,IMPLEMENTADO CODIGO,RecuperarViewModel; FirebaseAutenticacionRepository,Entrega y uso del correo de recuperacion requieren prueba manual; no se envia correo en esta revision
+4,4,HU004,Visualizar y actualizar perfil,IMPLEMENTADO DEMO,PerfilFragment; PerfilViewModelTest; firestore.rules,Perfil en Firestore por decision aprobada; no en PostgreSQL
+5,5,HU005,Rutas disponibles,IMPLEMENTADO DEMO,busqueda.js; SQL_SALIDAS; ResultadosFragment,Catalogo y precios siguen identificados como DEMO
+6,6,HU006 HU007,Origen destino fecha pasajeros,IMPLEMENTADO DEMO,InicioFragment; FiltrosViajeTest,Validacion antes de HTTP; favoritos no forman parte del alcance
+7,7,HU008,Horarios y duracion,IMPLEMENTADO DEMO,SalidasAdapter; salida_duracion,Duracion estimada calculada de salida y llegada
+8,8,HU009,Precios por salida,IMPLEMENTADO DEMO,RetrofitViajesRepository; pruebas HTTP,Precios ficticios; importe de compra calculado en SQL
+9,9,HU009 HU014,Disponibilidad real,CORREGIDO Y PROBADO,SQL_SALIDAS usa disponibilidad_asientos; prueba cupos; inventario protegido,Los cupos se revalidan al reservar; la cache elimina el conteo actual
+10,Sin codigo equivalente especifico,HU010,Mapa de terminales,IMPLEMENTADO DEMO,MapaTerminalFragment; UbicacionTerminalTest; revision dispositivo,Ubicaciones proporcionadas por usuario; no solicita posicion personal
+11,Sin codigo equivalente especifico,HU011,Nombre y direccion de terminal,PARCIAL DATOS,MapaTerminalFragment; docs/ubicaciones-terminales.json,Direccion postal y puerta de acceso pendientes de confirmacion empresarial
+12,10,HU012,Distribucion de asientos,IMPLEMENTADO DEMO,CompraFragment; disponibilidad_asientos; prueba dispositivo,Distribucion DEMO de 15 asientos por salida
+13,11,HU013,Seleccion de varios asientos,IMPLEMENTADO DEMO,CompraViewModelTest; reservar_asientos,Hasta nueve pasajeros y reserva atomica del grupo
+14,12,HU014,Impedir doble ocupacion,IMPLEMENTADO Y PROBADO,Indice parcial unico; bloqueos SQL; integracion concurrente,Pruebas en esquema aislado; no se sobrevende un asiento
+15,13,HU015,Resumen de compra,IMPLEMENTADO DEMO,PasajerosFragment; ResumenCompra; prueba dispositivo,Total congelado en reserva y pasajeros por asiento
+16,14,HU016,Confirmar compra,IMPLEMENTADO DEMO,pagar_reserva_prueba; trigger emision; pruebas atomicas,Vigencia y saldo verificados por servidor
+17,15,HU017,Pago electronico,AJUSTE APROBADO DEMO,docs/sprint-4-saldo-pruebas.md; decision del usuario en chat,S/300 ficticios por cuenta; no es pasarela sandbox ni cobro real; integracion real pendiente
+18,16,HU018,Confirmacion visual,IMPLEMENTADO DEMO,confirmacion_compra.xml; BoletosCompraInstrumentedTest,No permite volver a cobrar desde confirmacion
+19,17 y 20,HU019,Emision y detalle de boleto,IMPLEMENTADO DEMO,009_boletos_prueba.sql; DetalleBoletoFragment; QrBoletoPruebaTest,QR identifica un boleto de prueba; control de embarque y comprobante fiscal pendientes
+20,18 y 19,HU020,Mis boletos e historial,IMPLEMENTADO DEMO,MisBoletosFragment; HistorialComprasFragment; pruebas paginacion,Lista boletos incluye viajes actuales y anteriores; reservas no pagadas separadas de compras
+21,21,HU001 HU004,Almacenar usuarios,AJUSTE APROBADO,Firebase Auth y Firestore; usuario_uid en compras SQL,"Desviacion del texto SQL del maestro, aprobada por el usuario; documentar sin cambiar originales"
+22,22,Servidor,Administrar rutas horarios unidades,PARCIAL,001..006 SQL; catalogo por scripts; API consulta,No existe modulo administrativo autorizado ni CRUD de catalogo por roles
+23,23,HU014,Actualizar ocupacion de asientos,IMPLEMENTADO Y PROBADO,reservar_asientos; cancelar_reserva; liberar_reservas_vencidas,Vencimiento efectivo por vista y limpieza al operar; sin tarea programada global
+24,24,HU017,Registrar pagos y compras,IMPLEMENTADO DEMO,pagos_prueba; saldos_prueba; pruebas simultaneas,Solo dinero ficticio; no activar en NODE_ENV=production
+25,25,HU019 HU020,Almacenar boletos,IMPLEMENTADO DEMO,boletos_prueba; rutas privadas; historial,Copias de viaje; boletos anteriores marcados datos_recuperados

@@ -1,0 +1,10 @@
+﻿Prioridad,Area,Referencia,Tarea,Criterio de cierre,Limite
+P1,Academico,ODS12 y semana1/3/4,Completar investigacion y evidencia de etica/ODS12,"Fuentes verificadas, problema y criterio de aceptacion sin prometer ahorro medido",No se modifican maestros
+P1,Academico,Semana9 y REQ22,Acordar CRUD administrativo y roles con alcance del profesor,Operaciones autorizadas con pruebas; cancelacion logica no equivale a DELETE HTTP,No borrar compras para simular CRUD
+P1,Datos,REQ11,Confirmar direccion postal y acceso de cada sede,Empresa valida nombre direccion y coordenadas,Mantener ubicaciones aportadas hasta verificar
+P1,Operacion,RNF19,Crear y probar respaldo y restauracion PostgreSQL,Restaurar copia en entorno aislado y comprobar integridad,No demostrado en esta revision
+P1,Producto,RNF09,Incorporar textos oficiales de terminos y privacidad,Contenido revisado y mecanismo de aceptacion definido,Registro debug muestra aviso de demostracion
+P2,Calidad,RNF05/06/13/14/20,"Medir rendimiento, accesibilidad y compatibilidad","Varios Android/resoluciones, fuentes grandes, lector y carga",Una muestra USB no valida todas las condiciones
+P2,Calidad,REQ3,Verificar recuperacion de contrasena de principio a fin,Correo recibido y acceso con clave nueva en cuenta de prueba,No enviar correos a terceros ni usar contrasena personal
+P3,Produccion,REQ17 RNF10/21,Desplegar HTTPS y configurar pasarela real,"Entorno separado, credenciales comercio y verificacion servidor",Dinero ficticio hasta final del proyecto por decision del usuario
+P3,Produccion,HU019,Validacion de embarque por personal autorizado,Control de estado y uso en servidor con roles,"QR actual identifica, no autoriza embarque"

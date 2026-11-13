@@ -1,0 +1,23 @@
+﻿RNF documento requisitos,Criterio,Estado real,Evidencia,Pendiente
+01,Usabilidad intuitiva,PARCIAL,Interfaces y recorrido telefono,Falta sesion formal con usuarios y tasa de exito
+02,Validaciones visuales,IMPLEMENTADO DEMO,Validadores; pruebas de formulario,Error de registro vacio comprobado en dispositivo
+03,Comprobar conectividad antes de operar,PARCIAL,Timeouts; errores; cache SQLite de consulta,No existe preflight ConnectivityManager para cada operacion; no confundir fallo detectado con validacion previa
+04,Integridad asientos,PROBADO,SQL concurrente e indice unico,Pago y emision atomicos
+05,Inicio maximo 10 segundos,PARCIAL MEDICION,Muestra funcional en telefono,No benchmark formal ni varios modelos y condiciones
+06,Pantallas maximo 5 segundos,PARCIAL MEDICION,Muestra de busqueda USB,"No prueba estadistica de red movil, mapa y todas las pantallas"
+07,Respuesta sin retrasos significativos,PARCIAL,"Coroutines, timeouts y paginacion",Falta prueba de carga con usuarios simultaneos
+08,Credenciales individuales,IMPLEMENTADO DEMO,Firebase Auth e ID token,No se guardan contrasenas en SQLite o DataStore
+09,Datos personales protegidos,PARCIAL,Propiedad por UID y reglas Firestore,Textos oficiales pendientes y evaluacion formal de seguridad no realizada
+10,HTTPS app servidor,PENDIENTE PRODUCCION,Cleartext prohibido en main; excepcion loopback debug,API release no configurada; servidor local HTTP USB
+11,Codigo organizado,IMPLEMENTADO,"MVVM, Repository y capas",Mantener comentarios generales y documentacion
+12,Cambios sin perder datos,PARCIAL,Migraciones SQL atomicas y pruebas,No hay procedimiento de restauracion probado
+13,Versiones Android compatibles,PARCIAL,minSdk24; telefono Android16; desugaring,Falta prueba en Android24 y versiones intermedias
+14,Pantallas y resoluciones,PARCIAL,XML flexible e insets; un telefono real,"Falta matriz de pantallas, fuente grande y lector de pantalla"
+15,Comunicacion servidor SQL,IMPLEMENTADO DEMO,Retrofit; Node; PostgreSQL; pruebas,Entorno local
+16,Autenticacion y autorizacion servidor,IMPLEMENTADO DEMO,ID token firma/audiencia/exp; propiedad UID,Administracion y control de embarque con roles pendientes
+17,Proteccion credenciales,PARCIAL,Gitignore y revision de archivos,Auditoria de reglas desplegadas y rotacion operativa fuera de esta comprobacion
+18,Integridad datos SQL,PROBADO,"FK, constraints, transacciones y pruebas",Perfil esta en Firestore por ajuste aprobado
+19,Respaldo recuperable,PENDIENTE,Sin evidencia de pg_dump y restauracion probada,Prioridad antes de usar datos operativos
+20,Rendimiento servidor,PARCIAL,Paginacion y pruebas funcionales locales,Falta benchmark de concurrencia y dimensionamiento
+21,Disponibilidad del servicio,PARCIAL,Salud local; manejo de errores,"Sin hosting, monitoreo ni compromiso de disponibilidad"
+22,Mantenimiento seguro,PARCIAL,Migraciones y pruebas reproducibles,Falta automatizar despliegue y restauracion

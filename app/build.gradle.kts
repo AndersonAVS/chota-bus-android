@@ -52,6 +52,8 @@ android {
 }
 
 dependencies {
+    // Genera el QR localmente, sin servicio externo ni permisos de camara.
+    implementation("com.google.zxing:core:3.5.4")
     // Mapa nativo dentro de la interfaz XML del terminal.
     implementation("com.google.android.gms:play-services-maps:19.2.0")
     // Consulta REST, conversion JSON y lista de salidas con interfaces XML.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp"
+    android:layout_marginTop="12dp" android:background="@color/white">
+    <!-- Un bloque reutilizable por cada asiento reservado. -->
+    <TextView android:id="@+id/titulo_item_pasajero" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textColor="@color/chota_purple" android:textSize="19sp" android:textStyle="bold" android:accessibilityHeading="true" />
+    <TextView android:id="@+id/label_pasajero_nombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/perfil_nombre" android:textColor="@color/chota_text" />
+    <EditText android:id="@+id/input_pasajero_nombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp"
+        android:inputType="textPersonName|textCapWords" android:maxLength="200" android:maxLines="1" android:saveEnabled="false"
+        android:importantForAutofill="no" android:backgroundTint="@color/chota_purple" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/label_pasajero_dni" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/perfil_dni" android:textColor="@color/chota_text" />
+    <EditText android:id="@+id/input_pasajero_dni" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp"
+        android:inputType="number" android:maxLength="8" android:saveEnabled="false" android:importantForAutofill="no"
+        android:backgroundTint="@color/chota_purple" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/label_pasajero_celular" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/perfil_celular" android:textColor="@color/chota_text" />
+    <EditText android:id="@+id/input_pasajero_celular" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp"
+        android:inputType="phone" android:maxLength="9" android:saveEnabled="false" android:importantForAutofill="no"
+        android:backgroundTint="@color/chota_purple" android:textColor="@color/chota_text" />
+</LinearLayout>

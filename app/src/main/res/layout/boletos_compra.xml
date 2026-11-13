@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/scroll_boletos_compra" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/chota_background" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+        <!-- Consulta privada de los boletos de una compra; no usa ejemplos del boceto. -->
+        <Button android:id="@+id/btn_volver_boletos_compra" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/viaje_volver" android:textAllCaps="false" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:background="@color/chota_purple"
+            android:text="@string/confirmacion_ver_boletos" android:textColor="@color/white" android:textSize="23sp" android:textStyle="bold" android:accessibilityHeading="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:text="@string/boletos_de_compra" android:textColor="@color/chota_text" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:text="@string/boletos_aviso_prueba" android:textColor="@color/chota_purple" />
+        <ProgressBar android:id="@+id/progreso_boletos_compra" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="center_horizontal" android:visibility="gone" />
+        <TextView android:id="@+id/error_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp"
+            android:textColor="@color/chota_red" android:visibility="gone" android:accessibilityLiveRegion="polite" />
+        <TextView android:id="@+id/vacio_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp"
+            android:text="@string/boletos_sin_emitidos" android:textColor="@color/chota_muted" android:visibility="gone" />
+        <Button android:id="@+id/btn_recargar_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/boletos_actualizar" android:textAllCaps="false" />
+        <Button android:id="@+id/btn_login_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+            android:text="@string/compra_iniciar_sesion" android:visibility="gone" />
+        <LinearLayout android:id="@+id/lista_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+        <Button android:id="@+id/btn_inicio_boletos_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+            android:text="@string/boletos_volver_inicio" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

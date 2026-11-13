@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:orientation="vertical">
+    <!-- Resumen privado leido del servidor, con importes de la reserva. -->
+    <TextView android:id="@+id/resumen_viaje" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:padding="16dp" android:background="@color/white" android:textColor="@color/chota_text" android:textSize="16sp" />
+    <TextView android:id="@+id/resumen_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" android:padding="16dp" android:background="@color/white" android:textColor="@color/chota_text" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+        android:text="@string/compra_total_reserva" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/resumen_total" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textSize="25sp" android:textStyle="bold" android:textColor="@color/chota_red" />
+    <TextView android:id="@+id/resumen_condicion" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:paddingTop="12dp" android:paddingBottom="12dp" android:textColor="@color/chota_purple" />
+    <TextView android:id="@+id/aviso_reserva_resumen" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/compra_aviso_reserva" android:textColor="@color/chota_muted" />
+    <!-- Simulador educativo: saldo persistente y confirmacion realizada por el servidor. -->
+    <TextView android:id="@+id/saldo_prueba" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" android:padding="16dp" android:background="@color/white"
+        android:textColor="@color/chota_purple" android:textSize="17sp" android:accessibilityLiveRegion="polite" />
+    <Button android:id="@+id/btn_pagar_prueba" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:minHeight="48dp" android:text="@string/pago_prueba_boton" android:textAllCaps="false"
+        android:backgroundTint="@color/chota_red" android:textColor="@color/white" />
+    <Button android:id="@+id/btn_editar_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+        android:layout_marginTop="12dp" android:text="@string/pasajeros_editar" android:textAllCaps="false" android:backgroundTint="@color/chota_purple" android:textColor="@color/white" />
+    <Button android:id="@+id/btn_regresar_asientos" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+        android:text="@string/pasajeros_volver_asientos" android:textAllCaps="false" />
+</LinearLayout>

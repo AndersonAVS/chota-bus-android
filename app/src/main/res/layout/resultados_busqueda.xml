@@ -15,6 +15,7 @@
         android:textSize="21sp" android:textStyle="bold" android:textColor="@color/chota_text" />
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:paddingBottom="8dp"
         android:text="@string/viajes_disponibilidad" android:textColor="@color/chota_muted" />
+    <TextView android:id="@+id/aviso_cache_viajes" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp" android:textColor="@color/chota_red" android:visibility="gone" android:accessibilityLiveRegion="polite" />
     <!-- Estados visibles durante la consulta, si falla o no hay coincidencias. -->
     <ProgressBar android:id="@+id/progreso_viajes" android:layout_width="48dp" android:layout_height="48dp"
         android:layout_gravity="center_horizontal" android:visibility="gone" />

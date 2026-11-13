@@ -10,7 +10,12 @@
         android:layout_marginTop="8dp" android:padding="8dp" android:background="@color/chota_yellow" android:textColor="@color/chota_text" />
     <TextView android:id="@+id/salida_terminales" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginTop="8dp" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/salida_disponibilidad" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/salida_duracion" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textColor="@color/chota_muted" />
     <Button android:id="@+id/btn_ver_terminales" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:minHeight="48dp" android:layout_marginTop="8dp" android:backgroundTint="@color/chota_red"
         android:text="@string/viaje_ver_terminales" android:textAllCaps="false" android:textColor="@color/white" />
+    <Button android:id="@+id/btn_seleccionar_salida" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:minHeight="48dp" android:text="@string/compra_seleccionar_salida" android:textAllCaps="false"
+        android:backgroundTint="@color/chota_purple" android:textColor="@color/white" />
 </LinearLayout>

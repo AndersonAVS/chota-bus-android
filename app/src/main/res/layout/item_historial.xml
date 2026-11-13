@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp" android:background="@color/white">
+    <TextView android:id="@+id/historial_estado" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/chota_purple" />
+    <TextView android:id="@+id/historial_ruta" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/historial_fecha" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textColor="@color/chota_muted" />
+    <TextView android:id="@+id/historial_salida" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textSize="16sp" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/historial_importe" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:textSize="18sp" android:textStyle="bold" android:textColor="@color/chota_purple" />
+    <Button android:id="@+id/btn_boletos_historial" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+        android:text="@string/confirmacion_ver_boletos" android:textAllCaps="false" android:backgroundTint="@color/chota_purple" android:textColor="@color/white" android:visibility="gone" />
+</LinearLayout>

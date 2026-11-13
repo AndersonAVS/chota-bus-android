@@ -28,3 +28,5 @@ La primera lectura sin datos utiliza Chota y Cajamarca. Si el archivo contiene s
 Pruebas unitarias del ViewModel para carga, selección, intercambio, validación, errores y envíos repetidos. Pruebas con DataStore real en archivo temporal para guardado, reapertura y recuperación de valores inválidos. Las pruebas no modifican preferencias del teléfono.
 
 Prueba manual: entrar a Inicio; elegir Lajas y Jaén; cerrar y reabrir la app; comprobar la selección; intercambiarla; volver a abrir. Repetir al cerrar e iniciar sesión para verificar el alcance por dispositivo.
+
+Actualizacion de validacion: la [revision integral](validacion/informe-validacion.md) incorpora cupos reales en busqueda, duracion estimada y SQLite para consultas publicas de solo lectura ante fallo del servicio. DataStore conserva las preferencias; la cache no permite reservar ni comprar.

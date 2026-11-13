@@ -7,8 +7,20 @@
   "scripts": {
     "start": "node --env-file=.env src/server.js",
     "dev": "node --env-file=.env --watch src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "test:db": "node --env-file=.env --test integration/reservas.pg.js"
   },
-  "engines": { "node": ">=20.12.0" },
-  "dependencies": { "express": "^5.1.0", "pg": "^8.16.0" }
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "firebase-admin": "13.6.0",
+    "pg": "^8.16.0"
+  },
+  "overrides": {
+    "firebase-admin": {
+      "@firebase/database-compat": "2.1.0"
+    }
+  }
 }

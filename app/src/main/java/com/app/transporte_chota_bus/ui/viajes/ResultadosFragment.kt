@@ -21,16 +21,19 @@ class ResultadosFragment : Fragment(R.layout.resultados_busqueda) {
         FiltrosViaje(it.getString("origen").orEmpty(), it.getString("destino").orEmpty(), it.getString("fecha").orEmpty(), it.getInt("pasajeros"))
     }
     private val viewModel: ResultadosViewModel by viewModels {
-        ResultadosViewModelFactory(ContenedorDependencias.viajes, filtros)
+        ResultadosViewModelFactory(ContenedorDependencias.viajesConCache(requireContext()), filtros)
     }
 
     // Observa el resultado sin repetir la consulta al girar o volver a la pantalla.
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val lista = view.findViewById<RecyclerView>(R.id.lista_salidas)
-        val adapter = SalidasAdapter { salida ->
+        val adapter = SalidasAdapter(verTerminales = { salida ->
             (requireActivity() as com.app.transporte_chota_bus.MainActivity).abrirPantalla(
                 com.app.transporte_chota_bus.ui.terminal.MapaTerminalFragment.crear(salida.embarque, salida.destino))
-        }
+        }, seleccionarSalida = { salida ->
+            (requireActivity() as com.app.transporte_chota_bus.MainActivity).abrirPantalla(
+                com.app.transporte_chota_bus.ui.compra.CompraFragment.crear(salida, filtros.pasajeros))
+        })
         lista.layoutManager = LinearLayoutManager(requireContext())
         lista.adapter = adapter
         view.findViewById<TextView>(R.id.texto_ruta).text = getString(R.string.viaje_ruta, filtros.origen, filtros.destino)
@@ -52,6 +55,12 @@ class ResultadosFragment : Fragment(R.layout.resultados_busqueda) {
                     }
                     mensaje.isVisible = mensaje.text.isNotEmpty()
                     view.findViewById<View>(R.id.btn_reintentar_viajes).isVisible = estado.error != null
+                    adapter.soloConsulta=estado.desdeCache
+                    view.findViewById<TextView>(R.id.aviso_cache_viajes).apply{
+                        isVisible=estado.desdeCache
+                        text=getString(R.string.viajes_cache_aviso,estado.guardadoEn.orEmpty())
+                    }
+                    if(estado.desdeCache)view.findViewById<View>(R.id.btn_reintentar_viajes).isVisible=true
                     adapter.submitList(estado.salidas)
                 }
             }

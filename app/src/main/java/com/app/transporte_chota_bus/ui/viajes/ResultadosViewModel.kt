@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 data class EstadoResultados(
     val cargando: Boolean = false, val salidas: List<SalidaViaje> = emptyList(),
-    val error: String? = null, val hayMas: Boolean = false
+    val error: String? = null, val hayMas: Boolean = false, val desdeCache:Boolean=false, val guardadoEn:String?=null
 )
 
 class ResultadosViewModel(private val repository: ViajesRepository, val filtros: FiltrosViaje) : ViewModel() {
@@ -27,7 +27,7 @@ class ResultadosViewModel(private val repository: ViajesRepository, val filtros:
         _estado.value = EstadoResultados(cargando = true)
         viewModelScope.launch {
             repository.buscar(filtros).fold(
-                onSuccess = { _estado.value = EstadoResultados(salidas = it.salidas, hayMas = it.hayMas) },
+                onSuccess = { _estado.value = EstadoResultados(salidas = it.salidas, hayMas = it.hayMas, desdeCache=it.desdeCache, guardadoEn=it.guardadoEn) },
                 onFailure = { _estado.value = EstadoResultados(error = it.message ?: "No se pudo consultar los viajes.") }
             )
         }
