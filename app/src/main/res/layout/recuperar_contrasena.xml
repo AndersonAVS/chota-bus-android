@@ -32,15 +32,7 @@
                 android:textColor="@color/white"
                 android:textSize="32sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="CHOTA BUS"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <com.app.transporte_chota_bus.ui.marca.LogoChotaView android:id="@+id/logo_chota_cabecera" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:layout_marginStart="4dp" android:layout_marginEnd="4dp" />
 
             <Space
                 android:layout_width="48dp"

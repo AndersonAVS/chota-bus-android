@@ -31,7 +31,7 @@ export function crearApp(db, opciones = {}) {
 
   registrarHistorial(app,db,opciones);
   registrarBoletos(app,db,opciones);
-  registrarBusqueda(app, db);
+  registrarBusqueda(app, db, opciones);
   registrarPagosPrueba(app,db,opciones);
   registrarReservas(app, db, opciones);
 

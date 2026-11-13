@@ -5,7 +5,8 @@
     <!-- Cabecera y filtros de la consulta seleccionada. -->
     <Button android:id="@+id/btn_volver_resultados" android:layout_width="wrap_content" android:layout_height="48dp"
         android:text="@string/viaje_volver" android:textAllCaps="false" android:backgroundTint="@color/chota_purple" android:textColor="@color/white" />
-    <TextView android:id="@+id/texto_ruta" android:layout_width="match_parent" android:layout_height="wrap_content"
+    <com.app.transporte_chota_bus.ui.marca.LogoChotaView android:id="@+id/logo_chota_modulo" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginBottom="8dp" />
+        <TextView android:id="@+id/texto_ruta" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:padding="12dp" android:background="@color/chota_purple" android:textColor="@color/white" android:textSize="21sp" android:textStyle="bold" />
     <TextView android:id="@+id/texto_fecha_resultados" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:padding="8dp" android:textColor="@color/chota_text" />

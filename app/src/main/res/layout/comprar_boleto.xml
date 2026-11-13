@@ -7,8 +7,7 @@
             android:gravity="center_vertical" android:background="@color/chota_purple">
             <Button android:id="@+id/btn_volver_compra" android:layout_width="wrap_content" android:layout_height="48dp"
                 android:text="@string/viaje_volver" android:textAllCaps="false" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="CHOTA BUS" android:gravity="center" android:textColor="@color/white" android:textStyle="bold" android:textSize="20sp" />
+            <com.app.transporte_chota_bus.ui.marca.LogoChotaView android:id="@+id/logo_chota_cabecera" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:layout_marginStart="4dp" android:layout_marginEnd="4dp" />
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp"
             android:background="@color/white" android:padding="16dp" android:orientation="vertical">
@@ -28,8 +27,27 @@
         <TextView android:id="@+id/texto_error_compra" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp"
             android:textColor="@color/chota_red" android:visibility="gone" android:accessibilityLiveRegion="polite" />
         <Button android:id="@+id/btn_sesion_compra" android:layout_width="match_parent" android:layout_height="48dp" android:text="@string/compra_iniciar_sesion" android:visibility="gone" />
-        <LinearLayout android:id="@+id/filas_asientos" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:padding="12dp" android:background="@color/white" />
+        <!-- Carroceria y cabina decorativas; los unicos asientos elegibles vienen del inventario. -->
+        <LinearLayout android:id="@+id/marco_combi" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp" android:layout_marginTop="12dp" android:padding="16dp" android:orientation="vertical" android:background="@drawable/fondo_combi">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/combi_frente" android:gravity="center"
+                android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.12" android:textColor="@color/chota_muted" />
+            <View android:layout_width="match_parent" android:layout_height="24dp" android:layout_marginHorizontal="26dp" android:layout_marginTop="8dp" android:background="@drawable/parabrisas_combi" android:importantForAccessibility="no" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="90dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="8dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                    <ImageView android:layout_width="44dp" android:layout_height="44dp" android:src="@drawable/volante_combi" android:importantForAccessibility="no" android:contentDescription="@null" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/combi_conductor" android:textSize="12sp" android:textColor="@color/chota_purple" />
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="@string/combi_cabina" android:gravity="center" android:textColor="@color/chota_muted" android:textSize="12sp" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/etiqueta_pasillo_combi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:orientation="horizontal">
+                <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="2" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.55" android:text="@string/combi_pasillo" android:gravity="center" android:textColor="@color/chota_muted" android:textSize="8sp" />
+                <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/filas_asientos" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="@string/combi_posterior" android:gravity="center" android:textColor="@color/chota_muted" android:textSize="10sp" android:letterSpacing="0.12" />
+        </LinearLayout>
         <TextView android:id="@+id/texto_asiento_seleccionado" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="10dp" android:textColor="@color/chota_purple" android:textStyle="bold" />
         <!-- Total estimado y estado de la reserva temporal, sin simular un pago. -->

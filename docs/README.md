@@ -20,3 +20,9 @@ Guias por modulo:
 - [Historial](historial-compras.md)
 
 Las notas de pendientes de las guias antiguas reflejan el momento del incremento. La revision central indica cuales se resolvieron y cuales siguen abiertos. No se reconstruyen ceremonias Scrum ni resultados de campo como hechos sin evidencia.
+
+Actualizacion: [doce rutas y salidas horarias de 06:00 a 18:00](programacion-horaria.md), con renovacion diaria de treinta dias.
+
+Interfaz: [asientos con silueta de combi y conductor](diseno-asientos-combi.md), conservando las quince plazas del inventario actual.
+
+Identidad visual: [logo original en bienvenida, cabeceras y boletos](logo-chota-bus.md).

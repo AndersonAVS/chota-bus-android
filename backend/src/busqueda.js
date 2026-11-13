@@ -47,12 +47,13 @@ export const SQL_SALIDAS = `
   LIMIT 101
 `;
 
-export function registrarBusqueda(app, db) {
+export function registrarBusqueda(app, db, opciones={}) {
   app.get('/api/v1/salidas', async (req, res) => {
     const validacion = validarBusqueda(req.query);
     if (validacion.error) {
       return res.status(400).json({ error: { codigo: 'FILTROS_INVALIDOS', mensaje: validacion.error } });
     }
+    await opciones.programarViajes?.();
     const { origen, destino, fecha, pasajeros } = validacion.filtros;
     const resultado = await db.query(SQL_SALIDAS, [origen, destino, fecha, pasajeros]);
     res.json({

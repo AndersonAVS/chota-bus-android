@@ -16,14 +16,7 @@
         android:paddingBottom="28dp">
 
         <!-- Nombre de la empresa -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="CHOTA BUS"
-            android:textColor="@color/chota_purple"
-            android:textSize="36sp"
-            android:textStyle="bold|italic" />
+        <com.app.transporte_chota_bus.ui.marca.LogoChotaView android:id="@+id/logo_chota_cabecera" android:layout_width="match_parent" android:layout_height="wrap_content" />
 
         <!-- Detalle de color de la marca -->
         <View
@@ -42,23 +35,9 @@
             android:textSize="16sp"
             android:textStyle="italic" />
 
-        <!-- Ilustración provisional -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginTop="32dp"
-            android:background="#EFE7F3">
+        <!-- El logo original encabeza la bienvenida. -->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="Ilustración de un bus"
-                android:gravity="center"
-                android:text="🚌"
-                android:textSize="100sp" />
-        </FrameLayout>
-
-        <!-- Mensaje de bienvenida -->
+<!-- Mensaje de bienvenida -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

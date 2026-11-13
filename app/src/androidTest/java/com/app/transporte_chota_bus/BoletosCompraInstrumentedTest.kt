@@ -34,6 +34,17 @@ class BoletosCompraInstrumentedTest{
         val boletos=repo.consultarBoletos(id).getOrThrow()
         assertTrue(boletos.isNotEmpty());assertTrue(boletos.map{it.asiento}.sorted()==resumen.reserva.asientos.sorted())
         ActivityScenario.launch(MainActivity::class.java).use{scenario->
+            // Evidencia opcional del XML de bienvenida sin cerrar la sesion del usuario.
+            if(args.getString("evidenciaMarca")=="true")scenario.onActivity{actividad->
+                val bienvenida=actividad.layoutInflater.inflate(R.layout.bienvenida,null,false)
+                val ancho=actividad.resources.displayMetrics.widthPixels
+                bienvenida.measure(View.MeasureSpec.makeMeasureSpec(ancho,View.MeasureSpec.EXACTLY),View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED))
+                bienvenida.layout(0,0,ancho,bienvenida.measuredHeight)
+                val imagen=android.graphics.Bitmap.createBitmap(ancho,bienvenida.measuredHeight,android.graphics.Bitmap.Config.ARGB_8888)
+                bienvenida.draw(android.graphics.Canvas(imagen))
+                java.io.File(actividad.getExternalFilesDir(null),"evidencia_bienvenida_logo.png").outputStream().use{imagen.compress(android.graphics.Bitmap.CompressFormat.PNG,100,it)}
+                imagen.recycle()
+            }
             esperar{var listo=false;scenario.onActivity{listo=it.supportFragmentManager.findFragmentById(R.id.contenedor_pantallas) is InicioFragment};listo}
             scenario.onActivity{it.abrirPantalla(PasajerosFragment.crear(id))}
             esperar{var listo=false;scenario.onActivity{

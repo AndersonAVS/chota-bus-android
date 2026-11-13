@@ -23,6 +23,7 @@ before(async () => {
     await pool.query(await readFile(new URL('../sql/007_pasajeros_reserva.sql', import.meta.url), 'utf8'));
     await pool.query(await readFile(new URL('../sql/008_saldo_pruebas.sql', import.meta.url), 'utf8'));
     await pool.query(await readFile(new URL('../sql/009_boletos_prueba.sql', import.meta.url), 'utf8'));
+    await pool.query(await readFile(new URL('../sql/010_programacion_horaria.sql', import.meta.url), 'utf8'));
   } catch (error) {
     await pool.query('ROLLBACK');
     throw error;
@@ -536,4 +537,43 @@ test('busqueda cuenta libres reales y excluye salidas sin cupo para el grupo',as
  assert.equal((await buscar(2))[0].asientos_libres,2);
  await crearReservasRepository(pool).guardarPasajeros(uid,a.id,[pasajero(1)]);await pagar(a.id,uid);
  assert.equal((await buscar(2))[0].asientos_libres,2);
+});
+
+test('programacion horaria crea 12 rutas y 13 horas exactas por dia sin duplicar',async()=>{
+ const fecha=(await pool.query("SELECT ((now() AT TIME ZONE 'America/Lima')::date+1)::text fecha")).rows[0].fecha;
+ await pool.query('SELECT programar_salidas_demo($1,2)',[fecha]);
+ const grupos=(await pool.query(`SELECT r.id,to_char(s.fecha_hora_salida AT TIME ZONE 'America/Lima','YYYY-MM-DD') fecha,
+  count(*)::integer cantidad,min(extract(hour FROM s.fecha_hora_salida AT TIME ZONE 'America/Lima')) primera,
+  max(extract(hour FROM s.fecha_hora_salida AT TIME ZONE 'America/Lima')) ultima,
+  bool_and(extract(minute FROM s.fecha_hora_salida AT TIME ZONE 'America/Lima')=0) exactas
+  FROM salidas s JOIN rutas r ON r.id=s.ruta_id JOIN terminales o ON o.id=r.terminal_origen_id JOIN terminales d ON d.id=r.terminal_destino_id
+  WHERE o.nombre LIKE 'DEMO - Terminal %' AND d.nombre LIKE 'DEMO - Terminal %'
+   AND s.fecha_hora_salida>=$1::date::timestamp AT TIME ZONE 'America/Lima'
+   AND s.fecha_hora_salida<($1::date+2)::timestamp AT TIME ZONE 'America/Lima'
+  GROUP BY r.id,fecha`,[fecha])).rows;
+ assert.equal(grupos.length,24);assert.ok(grupos.every(g=>g.cantidad===13&&Number(g.primera)===6&&Number(g.ultima)===18&&g.exactas));
+ const repetidas=await Promise.all([pool.query('SELECT programar_salidas_demo($1,2) n',[fecha]),pool.query('SELECT programar_salidas_demo($1,2) n',[fecha])]);
+ assert.ok(repetidas.every(r=>r.rows[0].n===0));
+ const inventario=(await pool.query(`SELECT count(*)::integer n FROM salida_asientos sa JOIN salidas s ON s.id=sa.salida_id
+  JOIN rutas r ON r.id=s.ruta_id JOIN terminales o ON o.id=r.terminal_origen_id JOIN terminales d ON d.id=r.terminal_destino_id
+  WHERE o.nombre LIKE 'DEMO - Terminal %' AND d.nombre LIKE 'DEMO - Terminal %'
+   AND s.fecha_hora_salida>=$1::date::timestamp AT TIME ZONE 'America/Lima'
+   AND s.fecha_hora_salida<($1::date+2)::timestamp AT TIME ZONE 'America/Lima'`,[fecha])).rows[0].n;
+ assert.equal(inventario,12*13*2*15);
+});
+test('programacion conserva salidas pagadas y canceladas',async()=>{
+ const s=(await pool.query(`SELECT s.id FROM salidas s JOIN rutas r ON r.id=s.ruta_id
+  JOIN terminales o ON o.id=r.terminal_origen_id WHERE o.nombre='DEMO - Terminal Chota' AND s.fecha_hora_salida>now() ORDER BY s.fecha_hora_salida LIMIT 1`)).rows[0].id;
+ const uid='horario-preservar',repo=crearReservasRepository(pool),reserva=await repo.crear(uid,{salidaId:s,asientos:[1],solicitudId:randomUUID()});
+ await repo.guardarPasajeros(uid,reserva.id,[pasajero(1)]);await pagar(reserva.id,uid);
+ const antes=await crearBoletosRepository(pool).deReserva(uid,reserva.id);
+ const original=(await pool.query('SELECT * FROM salidas WHERE id=$1',[s])).rows[0];
+ const cancelar=(await pool.query(`SELECT id FROM salidas WHERE id<>$1 AND vehiculo_id IS NOT NULL AND estado='PROGRAMADA' AND fecha_hora_salida>now() ORDER BY id LIMIT 1`,[s])).rows[0].id;
+ await pool.query("UPDATE salidas SET estado='CANCELADA' WHERE id=$1",[cancelar]);
+ await pool.query('SELECT programar_salidas_demo()');
+ assert.deepEqual((await pool.query('SELECT * FROM salidas WHERE id=$1',[s])).rows[0],original);
+ assert.deepEqual(await crearBoletosRepository(pool).deReserva(uid,reserva.id),antes);
+ assert.equal((await repo.obtener(uid,reserva.id)).estado,'CONFIRMADA');
+ assert.equal((await pool.query('SELECT saldo::text FROM saldos_prueba WHERE usuario_uid=$1',[uid])).rows[0].saldo,'270.00');
+ assert.equal((await pool.query('SELECT estado FROM salidas WHERE id=$1',[cancelar])).rows[0].estado,'CANCELADA');
 });

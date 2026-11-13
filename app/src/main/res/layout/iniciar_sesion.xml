@@ -28,15 +28,7 @@
             android:textSize="36sp" />
 
         <!-- Marca -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="CHOTA BUS"
-            android:textColor="@color/chota_purple"
-            android:textSize="34sp"
-            android:textStyle="bold|italic" />
+        <com.app.transporte_chota_bus.ui.marca.LogoChotaView android:id="@+id/logo_chota_cabecera" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" />
 
         <View
             android:layout_width="110dp"

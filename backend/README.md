@@ -64,3 +64,7 @@ No se usa una clave privada para esta verificacion de firma, audiencia y vencimi
 La migracion sql/007_pasajeros_reserva.sql ya se aplico en la base local. Agrega pasajeros por asiento y una operacion de guardado atomica con propietario y vigencia verificados. PUT /api/v1/reservas/:id/pasajeros guarda el formulario completo; GET /api/v1/reservas/:id/resumen devuelve el resumen privado. No aceptar UID o precios del formulario y no registrar cuerpos que contengan datos personales. Los endpoints siguen requiriendo ID token Firebase.
 
 El cliente XML ya implementa formularios por asiento, validaciones, edicion y resumen con total SQL. Guia y evidencia: ../docs/sprint-4-pasajeros-resumen.md. Los siguientes pasos son pago verificado y boleto; guardar pasajeros no realiza cobros ni extiende el plazo de la reserva.
+
+## Programacion horaria
+
+Aplicar sql/010_programacion_horaria.sql despues de las migraciones del modulo de compra. Al iniciar en desarrollo, server.js mantiene hoy y los siguientes 29 dias para las doce rutas DEMO, cada hora de 06:00 a 18:00 America/Lima. Ver ../docs/programacion-horaria.md para reconstruccion, pruebas, limites y preservacion de compras. NODE_ENV=production desactiva este generador de flota ficticia.

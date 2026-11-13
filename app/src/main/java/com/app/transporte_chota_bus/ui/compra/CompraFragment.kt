@@ -119,30 +119,39 @@ class CompraFragment : Fragment(R.layout.comprar_boleto) {
         if (estado.salir) { viewModel.consumirSalida(); parentFragmentManager.popBackStack() }
     }
 
-    // Crea botones desde fila/columna reales de la API, sin inventar plazas o pasillos.
-    private fun dibujarAsientos(asientos: List<AsientoDisponible>, elegidos: Set<Int>, bloqueada: Boolean) {
-        val contenedor = view?.findViewById<LinearLayout>(R.id.filas_asientos) ?: return
+    // Conserva filas, numeros y estado de la API; en tres columnas separa visualmente el grupo 2+1.
+    private fun dibujarAsientos(asientos:List<AsientoDisponible>,elegidos:Set<Int>,bloqueada:Boolean){
+        val contenedor=view?.findViewById<LinearLayout>(R.id.filas_asientos)?:return
         contenedor.removeAllViews()
-        val columnas = asientos.maxOfOrNull { it.columna } ?: return
-        val alto = (56 * resources.displayMetrics.density).toInt()
-        for ((_, fila) in asientos.groupBy { it.fila }.toSortedMap()) {
-            val linea = LinearLayout(requireContext()).apply { orientation = LinearLayout.HORIZONTAL }
-            for (columna in 1..columnas) {
-                val asiento = fila.find { it.columna == columna }
-                val vista = if (asiento == null) Space(requireContext()) else Button(requireContext()).apply {
-                    text = asiento.numero.toString()
-                    minWidth = 0; minimumWidth = 0
-                    val elegido = asiento.numero in elegidos
-                    val color = if (elegido) R.color.chota_purple else if (asiento.disponible) R.color.asiento_libre else R.color.asiento_ocupado
-                    backgroundTintList = ColorStateList.valueOf(requireContext().getColor(color))
-                    setTextColor(requireContext().getColor(if (elegido) R.color.white else R.color.chota_text))
-                    isEnabled = asiento.disponible && !bloqueada
-                    isSelected = elegido
-                    contentDescription = getString(R.string.compra_descripcion_asiento, asiento.numero,
-                        getString(if (elegido) R.string.compra_elegido else if (asiento.disponible) R.string.compra_libre else R.string.compra_ocupado))
-                    setOnClickListener { viewModel.seleccionar(asiento.numero) }
+        val columnas=asientos.maxOfOrNull{it.columna}?:return
+        val conPasillo=columnas==3
+        view?.findViewById<View>(R.id.etiqueta_pasillo_combi)?.isVisible=conPasillo
+        val visuales=if(conPasillo)4 else columnas
+        val alto=(68*resources.displayMetrics.density).toInt()
+        for((_,fila)in asientos.groupBy{it.fila}.toSortedMap()){
+            val linea=LinearLayout(requireContext()).apply{orientation=LinearLayout.HORIZONTAL;gravity=android.view.Gravity.CENTER_VERTICAL}
+            for(visual in 1..visuales){
+                val esPasillo=conPasillo&&visual==3
+                val columna=if(conPasillo&&visual==4)3 else visual
+                val asiento=if(esPasillo)null else fila.find{it.columna==columna}
+                val celda=if(asiento==null)Space(requireContext()) else Button(requireContext()).apply{
+                    text=asiento.numero.toString();textSize=17f;setTypeface(typeface,android.graphics.Typeface.BOLD)
+                    minWidth=0;minimumWidth=0;minHeight=0;minimumHeight=0;isAllCaps=false
+                    setPadding(0,0,0,(12*resources.displayMetrics.density).toInt())
+                    stateListAnimator=null;backgroundTintList=null
+                    val elegido=asiento.numero in elegidos
+                    val fondo=when{elegido->R.color.chota_purple;asiento.disponible->R.color.asiento_libre;else->R.color.asiento_ocupado}
+                    val borde=when{elegido->"#4A155C";asiento.disponible->"#7BA886";else->"#AAA4AF"}
+                    background=AsientoCombiDrawable(requireContext().getColor(fondo),android.graphics.Color.parseColor(borde))
+                    setTextColor(requireContext().getColor(if(elegido)R.color.white else if(asiento.disponible)R.color.chota_text else R.color.chota_muted))
+                    isEnabled=asiento.disponible&&!bloqueada;isSelected=elegido;tag="asiento_${asiento.numero}"
+                    contentDescription=getString(R.string.compra_descripcion_asiento,asiento.numero,
+                        getString(if(elegido)R.string.compra_elegido else if(asiento.disponible)R.string.compra_libre else R.string.compra_ocupado))
+                    setOnClickListener{viewModel.seleccionar(asiento.numero)}
                 }
-                linea.addView(vista, LinearLayout.LayoutParams(0, alto, 1f))
+                linea.addView(celda,LinearLayout.LayoutParams(0,alto,if(esPasillo)0.55f else 1f).apply{
+                    if(!esPasillo){marginStart=(2*resources.displayMetrics.density).toInt();marginEnd=marginStart}
+                })
             }
             contenedor.addView(linea)
         }

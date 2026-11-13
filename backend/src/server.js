@@ -1,4 +1,5 @@
 import { crearPool } from './db.js';
+import {crearProgramador} from './programacion.js';
 import { crearApp } from './app.js';
 import { crearVerificadorFirebase } from './autenticacion.js';
 
@@ -12,19 +13,24 @@ try {
   pool = crearPool();
   pool.on('error', () => console.error('Se interrumpio una conexion de PostgreSQL.'));
   await pool.query('SELECT 1');
-  const servidor = crearApp(pool, { verificarToken: crearVerificadorFirebase() }).listen(puerto, '127.0.0.1', () => {
+  const programar=crearProgramador(pool);
+  await programar();
+  const refresco=setInterval(()=>programar().catch(()=>console.error('No se pudo renovar la programacion DEMO.')),60_000);
+  refresco.unref();
+  const servidor = crearApp(pool, { verificarToken: crearVerificadorFirebase(),programarViajes:programar }).listen(puerto, '127.0.0.1', () => {
     console.log(`API local: http://127.0.0.1:${puerto}/api/v1/salud`);
   });
   servidor.on('error', async () => {
+    clearInterval(refresco);
     console.error('No se pudo abrir el puerto del servidor.');
     await pool.end();
     process.exitCode = 1;
   });
 
   // Cierra las conexiones al detener el servidor desde la terminal.
-  const cerrar = () => servidor.close(() => {
+  const cerrar = () => {clearInterval(refresco);servidor.close(() => {
     pool.end().catch(() => { process.exitCode = 1; });
-  });
+  });};
   process.once('SIGINT', cerrar);
   process.once('SIGTERM', cerrar);
 } catch {

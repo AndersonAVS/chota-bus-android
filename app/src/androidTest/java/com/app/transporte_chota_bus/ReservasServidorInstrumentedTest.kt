@@ -39,7 +39,7 @@ class ReservasServidorInstrumentedTest {
             for (intento in 1..100) {
                 scenario.onActivity { actividad ->
                     val grid = actividad.findViewById<android.widget.LinearLayout>(R.id.filas_asientos)
-                    botones = if (grid == null) 0 else (0 until grid.childCount).sumOf { fila -> (grid.getChildAt(fila) as android.view.ViewGroup).childCount }
+                    botones = if (grid == null) 0 else (0 until grid.childCount).sumOf { fila -> (grid.getChildAt(fila) as android.view.ViewGroup).let{linea->(0 until linea.childCount).count{linea.getChildAt(it) is android.widget.Button}} }
                 }
                 if (botones == 15) break
                 kotlinx.coroutines.delay(250)
@@ -55,8 +55,20 @@ class ReservasServidorInstrumentedTest {
             }
             kotlinx.coroutines.delay(500)
             scenario.onActivity { actividad -> assertTrue(actividad.findViewById<android.view.View>(R.id.btn_reservar_asientos).isEnabled) }
+            scenario.onActivity{actividad->
+                val marco=actividad.findViewById<android.view.View>(R.id.marco_combi)
+                marco.requestRectangleOnScreen(android.graphics.Rect(0,0,marco.width,marco.height),true)
+            }
+            kotlinx.coroutines.delay(300)
             val contexto = InstrumentationRegistry.getInstrumentation().targetContext
-            val destino = java.io.File(contexto.getExternalFilesDir(null), "evidencia_asientos.png")
+            scenario.onActivity{actividad->
+                val marco=actividad.findViewById<android.view.View>(R.id.marco_combi)
+                val imagen=android.graphics.Bitmap.createBitmap(marco.width,marco.height,android.graphics.Bitmap.Config.ARGB_8888)
+                marco.draw(android.graphics.Canvas(imagen))
+                java.io.File(contexto.getExternalFilesDir(null),"evidencia_combi.png").outputStream().use{imagen.compress(android.graphics.Bitmap.CompressFormat.PNG,100,it)}
+                imagen.recycle()
+            }
+            val destino = java.io.File(contexto.getExternalFilesDir(null), "evidencia_asientos_combi.png")
             InstrumentationRegistry.getInstrumentation().uiAutomation.takeScreenshot()?.let { bitmap ->
                 destino.outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG,100,it) }
                 bitmap.recycle()

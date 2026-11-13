@@ -21,6 +21,7 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
     private val busquedaViewModel: BusquedaViewModel by viewModels {
         BusquedaViewModelFactory(requireContext().applicationContext)
     }
+    private var menuCuenta:android.widget.PopupMenu?=null
     private var selector: AlertDialog? = null
     private var calendario: android.app.DatePickerDialog? = null
     private val formulario: FormularioViajeViewModel by viewModels()
@@ -31,13 +32,10 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
         super.onViewCreated(view, savedInstanceState)
         val saludo = view.findViewById<TextView>(R.id.texto_saludo_inicio)
         val mensaje = view.findViewById<TextView>(R.id.texto_estado_sesion)
-        val cerrar = view.findViewById<View>(R.id.btn_cerrar_sesion)
+        val abrirMenu = view.findViewById<View>(R.id.btn_menu_cuenta)
         val reintentar = view.findViewById<View>(R.id.btn_reintentar_sesion)
-        // Abre el perfil y actualiza el saludo cuando se guardan cambios.
-        val perfil = view.findViewById<View>(R.id.btn_mi_perfil)
-        perfil.setOnClickListener {
-            (requireActivity() as MainActivity).abrirPantalla(PerfilFragment())
-        }
+        // Agrupa perfil y cierre de sesion en el menu sin ocupar el formulario de busqueda.
+        abrirMenu.setOnClickListener { mostrarMenuCuenta(it) }
         parentFragmentManager.setFragmentResultListener(
             PerfilFragment.RESULTADO_ACTUALIZADO, viewLifecycleOwner
         ) { _, _ -> viewModel.consultarSesion() }
@@ -49,7 +47,6 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
         view.findViewById<View>(R.id.btn_historial).setOnClickListener{
             (requireActivity() as MainActivity).abrirPantalla(com.app.transporte_chota_bus.ui.compra.HistorialComprasFragment())
         }
-        cerrar.setOnClickListener { viewModel.cerrarSesion() }
         reintentar.setOnClickListener { viewModel.consultarSesion() }
 
         // Conecta los selectores con las preferencias locales.
@@ -137,8 +134,9 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
                     saludo.text = estado.usuario?.let { getString(R.string.saludo_usuario, it.nombreCompleto) }
                         ?: getString(R.string.consultando_sesion)
                     actualizarControles()
-                    cerrar.isEnabled = !estado.cargando
-                    perfil.isEnabled = !estado.cargando && estado.usuario != null && estado.error == null
+                    abrirMenu.isEnabled = !estado.cargando
+                    menuCuenta?.menu?.findItem(R.id.btn_mi_perfil)?.isEnabled = !estado.cargando && estado.usuario != null && estado.error == null
+                    menuCuenta?.menu?.findItem(R.id.btn_cerrar_sesion)?.isEnabled = !estado.cargando
                     mensaje.text = estado.error.orEmpty()
                     mensaje.isVisible = estado.error != null
                     reintentar.isVisible = estado.error != null
@@ -147,6 +145,30 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
                     }
                 }
             }
+        }
+    }
+
+    private fun mostrarMenuCuenta(ancla:View){
+        if(viewModel.estado.value.cargando)return
+        menuCuenta?.dismiss()
+        menuCuenta=android.widget.PopupMenu(requireContext(),ancla,android.view.Gravity.START).apply{
+            menuInflater.inflate(R.menu.menu_cuenta,menu)
+            val estado=viewModel.estado.value
+            menu.findItem(R.id.btn_mi_perfil).isEnabled=estado.usuario!=null&&estado.error==null
+            setOnMenuItemClickListener{item->
+                // Revalida el estado al pulsar para no actuar sobre una sesion que esta cambiando.
+                val actual=viewModel.estado.value
+                when(item.itemId){
+                    R.id.btn_mi_perfil->{
+                        if(!actual.cargando&&actual.usuario!=null&&actual.error==null)
+                            (requireActivity() as MainActivity).abrirPantalla(PerfilFragment())
+                        true
+                    }
+                    R.id.btn_cerrar_sesion->{if(!actual.cargando)viewModel.cerrarSesion();true}
+                    else->false
+                }
+            }
+            show()
         }
     }
 
@@ -190,6 +212,7 @@ class InicioFragment : Fragment(R.layout.inicio_busqueda) {
     }
 
     override fun onDestroyView() {
+        menuCuenta?.dismiss();menuCuenta=null
         calendario?.dismiss()
         calendario = null
         selector?.dismiss()

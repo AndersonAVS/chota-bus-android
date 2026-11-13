@@ -42,7 +42,7 @@ class RetrofitReservasRepositoryTest {
     @Test fun saldoInsuficientePresentaMensajeClaro()=runTest {
         server.enqueue(MockResponse().setResponseCode(422))
         val e=repo.pagarConSaldoPrueba(id).exceptionOrNull() as ErrorReserva
-        assertEquals(TipoErrorReserva.RECHAZADA,e.tipo);assertTrue(e.message!!.contains("saldo ficticio"))
+        assertEquals(TipoErrorReserva.RECHAZADA,e.tipo);assertTrue(e.message!!.contains("saldo"))
     }
     private fun boletoJson(reservaId:String=id)="""{"id":"$id","codigo":"CBP-00000000000040008000000000000001",
         "reserva_id":"$reservaId","asiento":1,"importe_unitario":"30.00","moneda":"PEN","modo":"PRUEBA","estado":"EMITIDO",

@@ -142,7 +142,7 @@ class RetrofitReservasRepository(private val api: ReservasApi, private val sesio
     } catch (error: ErrorReserva) { Result.failure(error)
     } catch (error: HttpException) {
         val (tipo, mensaje) = when (error.code()) {
-            422 -> TipoErrorReserva.RECHAZADA to "Tu saldo ficticio no alcanza para esta compra."
+            422 -> TipoErrorReserva.RECHAZADA to "Tu saldo no alcanza para esta compra."
             401 -> TipoErrorReserva.SESION to "Inicia sesión nuevamente para continuar."
             409 -> TipoErrorReserva.CONFLICTO to "La reserva cambió o un asiento ya no está disponible. Actualiza la selección."
             404 -> TipoErrorReserva.NO_ENCONTRADO to "No se encontró la salida o la reserva."

@@ -5,6 +5,7 @@
         <!-- Cabecera, vigencia y estados compartidos del formulario y resumen. -->
         <Button android:id="@+id/btn_volver_pasajeros" android:layout_width="wrap_content" android:layout_height="48dp"
             android:text="@string/viaje_volver" android:textAllCaps="false" />
+        <com.app.transporte_chota_bus.ui.marca.LogoChotaView android:id="@+id/logo_chota_modulo" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginBottom="8dp" />
         <TextView android:id="@+id/titulo_pasajeros" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:padding="16dp" android:background="@color/chota_purple" android:text="@string/pasajeros_titulo"
             android:textColor="@color/white" android:textSize="23sp" android:textStyle="bold" android:accessibilityHeading="true" />

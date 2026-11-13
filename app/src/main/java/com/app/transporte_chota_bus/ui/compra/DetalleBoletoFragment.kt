@@ -22,6 +22,7 @@ class DetalleBoletoFragment:Fragment(R.layout.detalle_boleto){
     private val vm:DetalleBoletoViewModel by viewModels{DetalleBoletoViewModelFactory(ContenedorDependencias.reservas,requireArguments().getString("boleto_id").orEmpty())}
     private var qr:Job?=null
     override fun onViewCreated(view:View,savedInstanceState:Bundle?){
+        view.findViewById<View>(R.id.logo_chota_boleto).isVisible=false
         view.findViewById<View>(R.id.btn_volver_detalle_boleto).setOnClickListener{parentFragmentManager.popBackStack()}
         view.findViewById<View>(R.id.btn_actualizar_detalle_boleto).setOnClickListener{vm.cargar()}
         view.findViewById<View>(R.id.btn_login_detalle_boleto).setOnClickListener{(requireActivity() as MainActivity).volverAlLogin()}
