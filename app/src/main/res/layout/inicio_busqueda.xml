@@ -54,10 +54,11 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/texto_saludo_inicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Hola, María"
+            android:text="@string/consultando_sesion"
             android:textColor="@color/chota_text"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -69,6 +70,34 @@
             android:text="¿A dónde quieres viajar hoy?"
             android:textColor="@color/chota_muted"
             android:textSize="16sp" />
+
+        <!-- Estado de la sesión -->
+        <TextView
+            android:id="@+id/texto_estado_sesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:textColor="@color/chota_purple"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_reintentar_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/reintentar_sesion"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_cerrar_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/chota_purple"
+            android:text="@string/cerrar_sesion"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
         <!-- Debajo agregaremos el formulario de búsqueda -->
 

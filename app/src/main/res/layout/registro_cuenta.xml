@@ -187,7 +187,7 @@
             android:layout_marginTop="4dp"
             android:autofillHints="newPassword"
             android:backgroundTint="@color/chota_purple"
-            android:hint="Crea una contraseña"
+            android:hint="Crea una contraseña de 8 o más caracteres"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
             android:paddingStart="12dp"
@@ -261,6 +261,17 @@
             android:text="Ver Política de Privacidad"
             android:textColor="@color/chota_purple"
             android:textSize="14sp" />
+
+        <!-- Resultado de validación -->
+        <TextView
+            android:id="@+id/texto_estado_registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:text="@string/registro_datos_validos"
+            android:textColor="@color/chota_purple"
+            android:visibility="gone" />
 
         <!-- Crear cuenta -->
         <Button

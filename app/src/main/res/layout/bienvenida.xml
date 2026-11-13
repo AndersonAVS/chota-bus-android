@@ -79,6 +79,24 @@
             android:textColor="@color/chota_muted"
             android:textSize="16sp" />
 
+        <!-- Estado de la sesión -->
+        <TextView
+            android:id="@+id/texto_estado_bienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:textColor="@color/chota_purple"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_reintentar_bienvenida"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/reintentar_sesion"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
         <!-- Acceso obligatorio a una cuenta -->
         <Button
             android:id="@+id/btn_bienvenida_login"

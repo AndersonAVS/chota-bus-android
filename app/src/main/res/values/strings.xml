@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Transporte_Chota_BUS</string>
+    <string name="registro_datos_validos">Datos del formulario válidos.</string>
+    <string name="acceso_datos_validos">Datos del formulario válidos.</string>
+    <string name="recuperacion_correo_valido">Correo con formato válido.</string>
+    <string name="iniciando_sesion">Iniciando sesión…</string>
+    <string name="creando_cuenta">Creando cuenta y guardando perfil…</string>
+    <string name="enviando_recuperacion">Solicitando instrucciones…</string>
+    <string name="consultando_sesion">Comprobando sesión…</string>
+    <string name="saludo_usuario">Hola, %1$s</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="reintentar_sesion">Reintentar</string>
 </resources>

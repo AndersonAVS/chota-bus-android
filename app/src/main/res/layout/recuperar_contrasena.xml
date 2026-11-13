@@ -118,6 +118,17 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <!-- Resultado de la validación local -->
+        <TextView
+            android:id="@+id/texto_estado_correo_recuperacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:text="@string/recuperacion_correo_valido"
+            android:textColor="@color/chota_purple"
+            android:visibility="gone" />
+
         <!-- Se mostrará después de procesar la solicitud -->
         <TextView
             android:id="@+id/texto_confirmacion_recuperacion"

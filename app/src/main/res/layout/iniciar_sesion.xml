@@ -142,6 +142,17 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
+        <!-- Resultado de la validación local -->
+        <TextView
+            android:id="@+id/texto_estado_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:text="@string/acceso_datos_validos"
+            android:textColor="@color/chota_purple"
+            android:visibility="gone" />
+
         <!-- Iniciar sesión -->
         <Button
             android:id="@+id/btn_iniciar_sesion"

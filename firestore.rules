@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Restringe los perfiles a su propietario y a los campos previstos.
+    match /usuarios/{usuarioId} {
+      function propietario() {
+        return request.auth != null && request.auth.uid == usuarioId;
+      }
+      function perfilValido() {
+        let datos = request.resource.data;
+        let campos = ['id', 'nombreCompleto', 'dni', 'celular', 'correo', 'creadoEn'];
+        return datos.keys().hasAll(campos) && datos.keys().hasOnly(campos)
+          && datos.id == usuarioId
+          && datos.nombreCompleto is string
+          && datos.nombreCompleto.size() > 0 && datos.nombreCompleto.size() <= 200
+          && datos.dni is string && datos.dni.matches('[0-9]{8}')
+          && datos.celular is string && datos.celular.matches('[0-9]{9}')
+          && datos.correo is string && datos.correo == request.auth.token.email
+          && datos.creadoEn is timestamp;
+      }
+      allow get: if propietario();
+      allow create: if propietario() && perfilValido()
+        && request.resource.data.creadoEn == request.time;
+      allow update: if propietario() && perfilValido()
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['nombreCompleto', 'dni', 'celular']);
+      allow list, delete: if false;
+    }
+  }
+}

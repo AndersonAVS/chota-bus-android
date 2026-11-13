@@ -28,3 +28,5 @@ local.properties
 keystore.properties
 
 .idea/
+
+/app/google-services.json
