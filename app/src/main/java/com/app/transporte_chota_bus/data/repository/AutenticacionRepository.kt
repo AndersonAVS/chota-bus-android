@@ -23,5 +23,12 @@ interface AutenticacionRepository {
 
     suspend fun obtenerUsuarioActual(): Result<Usuario?>
 
+    // Actualiza únicamente los datos personales de la cuenta autenticada.
+    suspend fun actualizarPerfil(
+        nombreCompleto: String,
+        dni: String,
+        celular: String
+    ): Result<Usuario>
+
     suspend fun cerrarSesion(): Result<Unit>
 }

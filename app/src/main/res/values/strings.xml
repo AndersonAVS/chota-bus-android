@@ -10,4 +10,59 @@
     <string name="saludo_usuario">Hola, %1$s</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
     <string name="reintentar_sesion">Reintentar</string>
+    <string name="perfil_titulo">Mi perfil</string>
+    <string name="perfil_descripcion">Consulta y actualiza tus datos personales.</string>
+    <string name="perfil_nombre">Nombre completo</string>
+    <string name="perfil_dni">DNI</string>
+    <string name="perfil_celular">Número de celular</string>
+    <string name="perfil_correo">Correo electrónico (solo lectura)</string>
+    <string name="perfil_guardar">Guardar cambios</string>
+    <string name="perfil_volver">Volver a Inicio</string>
+    <string name="perfil_cargando">Cargando tu perfil…</string>
+    <string name="perfil_guardando">Guardando cambios…</string>
+    <string name="perfil_guardado">Cambios guardados correctamente.</string>
+    <string name="perfil_procesando">Procesando la solicitud</string>
+    <string name="seleccionar_origen">Selecciona tu origen</string>
+    <string name="seleccionar_destino">Selecciona tu destino</string>
+    <string name="cancelar_seleccion">Cancelar</string>
+    <string name="intercambiar_ruta">Intercambiar origen y destino</string>
+    <string name="preferencias_cargando">Recuperando la última selección…</string>
+    <string name="preferencias_guardando">Guardando selección…</string>
+
+    <!-- Textos de busqueda remota y resultados. -->
+    <string name="viaje_elegir_fecha">Selecciona una fecha</string>
+    <string name="viaje_pasajeros">Cantidad de pasajeros</string>
+    <plurals name="viaje_cantidad">
+        <item quantity="one">%d pasajero</item>
+        <item quantity="other">%d pasajeros</item>
+    </plurals>
+    <string name="viaje_ruta">%1$s → %2$s</string>
+    <string name="viaje_resumen">%1$s · %2$s</string>
+    <string name="viajes_cargando">Buscando salidas…</string>
+    <string name="viajes_vacios">No hay salidas para esta búsqueda. Prueba otra fecha o ruta.</string>
+    <string name="viajes_mas_resultados">Se muestran las primeras 100 salidas. Hay más resultados.</string>
+    <string name="viaje_horarios">Salida: %1$s\nLlegada: %2$s</string>
+    <string name="viaje_precio">S/ %1$s por pasajero</string>
+    <string name="viaje_terminales">Embarque: %1$s\nLlegada: %2$s</string>
+    <string name="viaje_direcciones">Embarque: %1$s\n%2$s\n\nLlegada: %3$s\n%4$s</string>
+    <string name="viaje_detalle_terminales">Terminales del viaje</string>
+    <string name="viaje_cerrar">Cerrar</string>
+    <string name="viaje_ver_terminales">Ver terminales</string>
+    <string name="viaje_volver">Volver</string>
+    <string name="viaje_cambiar">Cambiar búsqueda</string>
+    <string name="viaje_reintentar">Reintentar</string>
+    <string name="viajes_titulo">Salidas encontradas</string>
+    <string name="viajes_disponibilidad">La disponibilidad de asientos aún no está confirmada.</string>
+
+    <!-- Estados y acciones de la ubicacion del terminal. -->
+    <string name="terminal_punto_embarque">Punto de embarque</string>
+    <string name="terminal_punto_llegada">Punto de llegada</string>
+    <string name="terminal_embarque">Embarque</string>
+    <string name="terminal_llegada">Llegada</string>
+    <string name="terminal_descripcion">Consulta la dirección y ubicación del terminal de tu viaje.</string>
+    <string name="terminal_ubicacion_pendiente">La ubicación de este terminal aún está pendiente de confirmación. Consulta la dirección disponible.</string>
+    <string name="terminal_mapa_no_disponible">El mapa no está disponible por el momento. Puedes abrir Cómo llegar si el terminal tiene una ubicación confirmada.</string>
+    <string name="terminal_mapa_cargando">Cargando mapa del terminal…</string>
+    <string name="terminal_como_llegar">Cómo llegar</string>
+    <string name="terminal_sin_aplicacion">No se encontró una aplicación para abrir las indicaciones.</string>
 </resources>

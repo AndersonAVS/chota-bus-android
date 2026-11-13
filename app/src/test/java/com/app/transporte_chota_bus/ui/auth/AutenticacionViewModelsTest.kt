@@ -176,6 +176,13 @@ class AutenticacionViewModelsTest {
 
         override suspend fun obtenerUsuarioActual() = resultadoActual
 
+        override suspend fun actualizarPerfil(nombreCompleto: String, dni: String, celular: String): Result<Usuario> {
+            val usuario = resultadoActual.getOrThrow() ?: return Result.failure(Exception("Sin sesión"))
+            val actualizado = usuario.copy(nombreCompleto = nombreCompleto, dni = dni, celular = celular)
+            resultadoActual = Result.success(actualizado)
+            return Result.success(actualizado)
+        }
+
         override suspend fun cerrarSesion(): Result<Unit> {
             llamadasCerrar++
             resultadoActual = Result.success(null)

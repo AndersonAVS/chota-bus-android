@@ -30,3 +30,6 @@ keystore.properties
 .idea/
 
 /app/google-services.json
+
+# Clave local de Google Maps
+/secrets.properties

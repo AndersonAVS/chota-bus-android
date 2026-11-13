@@ -89,6 +89,17 @@
             android:textAllCaps="false"
             android:visibility="gone" />
 
+        <!-- Acceso a los datos personales -->
+        <Button
+            android:id="@+id/btn_mi_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/chota_purple"
+            android:text="@string/perfil_titulo"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
         <Button
             android:id="@+id/btn_cerrar_sesion"
             android:layout_width="wrap_content"
@@ -110,8 +121,23 @@
             android:orientation="vertical"
             android:padding="14dp">
 
+            <!-- Estado de las preferencias locales -->
+            <TextView
+                android:id="@+id/texto_estado_preferencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:accessibilityLiveRegion="polite"
+                android:textColor="@color/chota_purple"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
             <!-- Origen -->
             <LinearLayout
+                android:id="@+id/fila_origen"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:gravity="center_vertical"
@@ -163,6 +189,10 @@
 
             <!-- Destino -->
             <LinearLayout
+                android:id="@+id/fila_destino"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:gravity="center_vertical"
@@ -212,8 +242,22 @@
                 android:layout_height="1dp"
                 android:background="@color/chota_background" />
 
+            <!-- Intercambio de la selección actual -->
+            <Button
+                android:id="@+id/btn_intercambiar_ruta"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/chota_purple"
+                android:text="@string/intercambiar_ruta"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
             <!-- Fecha -->
             <LinearLayout
+                android:id="@+id/fila_fecha"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:gravity="center_vertical"
@@ -265,6 +309,10 @@
 
             <!-- Pasajeros -->
             <LinearLayout
+                android:id="@+id/fila_pasajeros"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:gravity="center_vertical"

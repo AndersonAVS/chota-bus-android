@@ -1,210 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/chota_background"
-    android:fillViewport="true">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- Barra superior -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/chota_purple"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp">
-
-            <TextView
-                android:id="@+id/btn_volver_terminal"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Volver"
-                android:gravity="center"
-                android:text="‹"
-                android:textColor="@color/white"
-                android:textSize="32sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="CHOTA BUS"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="48dp"
-                android:layout_height="1dp" />
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/chota_background" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <!-- Cabecera con el marco y los colores de Chota Bus. -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+            android:background="@color/chota_purple" android:gravity="center_vertical" android:orientation="horizontal">
+            <TextView android:id="@+id/btn_volver_terminal" android:layout_width="48dp" android:layout_height="48dp"
+                android:gravity="center" android:text="‹" android:textSize="32sp" android:textColor="@color/white"
+                android:contentDescription="@string/viaje_volver" android:clickable="true" android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="CHOTA BUS" android:gravity="center" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/white" />
+            <Space android:layout_width="48dp" android:layout_height="1dp" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Punto de embarque"
-            android:textColor="@color/chota_text"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Consulta la ubicación del terminal de tu viaje."
-            android:textColor="@color/chota_muted"
-            android:textSize="15sp" />
-
-        <!-- Selector de sede -->
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_sede_chota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="6dp"
-                    android:backgroundTint="@color/chota_purple"
-                    android:text="Chota"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/btn_sede_lajas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="6dp"
-                    android:backgroundTint="@color/white"
-                    android:text="Lajas"
-                    android:textAllCaps="false"
-                    android:textColor="@color/chota_purple" />
-
-                <Button
-                    android:id="@+id/btn_sede_cajamarca"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="6dp"
-                    android:backgroundTint="@color/white"
-                    android:text="Cajamarca"
-                    android:textAllCaps="false"
-                    android:textColor="@color/chota_purple" />
-
-                <Button
-                    android:id="@+id/btn_sede_jaen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:backgroundTint="@color/white"
-                    android:text="Jaén"
-                    android:textAllCaps="false"
-                    android:textColor="@color/chota_purple" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <!-- Espacio reservado para el mapa real -->
-        <FrameLayout
-            android:id="@+id/contenedor_mapa"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="14dp"
-            android:background="#E8E3E9">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="44sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Terminal Chota Bus"
-                    android:textColor="@color/chota_purple"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Vista de ejemplo del mapa"
-                    android:textColor="@color/chota_muted"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <!-- Información del terminal -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/texto_nombre_terminal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Terminal Chota Bus – Chota"
-                android:textColor="@color/chota_text"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/texto_direccion_terminal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Jr. Eleodoro Benel 400, Chota"
-                android:textColor="@color/chota_muted"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/texto_telefono_terminal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Teléfono: 959 191 028"
-                android:textColor="@color/chota_purple"
-                android:textSize="15sp" />
+        <TextView android:id="@+id/texto_tipo_terminal" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:textSize="25sp" android:textStyle="bold" android:textColor="@color/chota_text" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
+            android:text="@string/terminal_descripcion" android:textColor="@color/chota_muted" android:textSize="15sp" />
+        <!-- Selecciona solo los puntos de embarque y llegada del viaje actual. -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="16dp">
+            <Button android:id="@+id/btn_terminal_embarque" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:minHeight="48dp" android:text="@string/terminal_embarque" android:textAllCaps="false" />
+            <Button android:id="@+id/btn_terminal_llegada" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:minHeight="48dp" android:layout_marginStart="8dp"
+                android:text="@string/terminal_llegada" android:textAllCaps="false" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_como_llegar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="18dp"
-            android:backgroundTint="@color/chota_red"
-            android:text="Cómo llegar"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
+        <!-- Estados de carga o ubicacion pendiente, sin simular un mapa real. -->
+        <TextView android:id="@+id/texto_estado_mapa" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:padding="12dp" android:textColor="@color/chota_purple" android:accessibilityLiveRegion="polite" />
+        <ProgressBar android:id="@+id/progreso_mapa" android:layout_width="48dp" android:layout_height="48dp"
+            android:layout_gravity="center_horizontal" android:visibility="gone" />
+        <Button android:id="@+id/btn_reintentar_mapa" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:text="@string/viaje_reintentar" android:textAllCaps="false" android:visibility="gone" />
+        <androidx.fragment.app.FragmentContainerView android:id="@+id/contenedor_mapa"
+            android:layout_width="match_parent" android:layout_height="300dp" android:layout_marginTop="14dp" android:visibility="gone" />
+        <!-- Informacion del terminal recibida de PostgreSQL mediante la API. -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+            android:background="@color/white" android:orientation="vertical" android:padding="16dp">
+            <TextView android:id="@+id/texto_nombre_terminal" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="18sp" android:textStyle="bold" android:textColor="@color/chota_text" />
+            <TextView android:id="@+id/texto_ciudad_terminal" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:textColor="@color/chota_purple" />
+            <TextView android:id="@+id/texto_direccion_terminal" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textSize="15sp" android:textColor="@color/chota_muted" />
+        </LinearLayout>
+        <Button android:id="@+id/btn_como_llegar" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="56dp" android:layout_marginTop="18dp" android:backgroundTint="@color/chota_red"
+            android:text="@string/terminal_como_llegar" android:textAllCaps="false" android:textColor="@color/white" android:textSize="16sp" />
     </LinearLayout>
 </ScrollView>

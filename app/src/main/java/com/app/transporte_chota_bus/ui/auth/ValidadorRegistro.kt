@@ -1,5 +1,8 @@
 package com.app.transporte_chota_bus.ui.auth
 
+import com.app.transporte_chota_bus.domain.validation.CampoPerfil
+import com.app.transporte_chota_bus.domain.validation.ValidadorPerfil
+
 enum class CampoRegistro {
     NOMBRE, DNI, CELULAR, CORREO, CONTRASENA, CONFIRMACION, TERMINOS
 }
@@ -17,14 +20,13 @@ object ValidadorRegistro {
         confirmacion: String,
         aceptaTerminos: Boolean
     ): Map<CampoRegistro, String> = buildMap {
-        if (nombre.isBlank()) {
-            put(CampoRegistro.NOMBRE, "Ingresa tus nombres y apellidos")
-        }
-        if (!dni.trim().matches(Regex("[0-9]{8}"))) {
-            put(CampoRegistro.DNI, "Ingresa un DNI de 8 dígitos")
-        }
-        if (!celular.trim().matches(Regex("[0-9]{9}"))) {
-            put(CampoRegistro.CELULAR, "Ingresa un celular de 9 dígitos")
+        ValidadorPerfil.validar(nombre, dni, celular).forEach { (campo, mensaje) ->
+            val campoRegistro = when (campo) {
+                CampoPerfil.NOMBRE -> CampoRegistro.NOMBRE
+                CampoPerfil.DNI -> CampoRegistro.DNI
+                CampoPerfil.CELULAR -> CampoRegistro.CELULAR
+            }
+            put(campoRegistro, mensaje)
         }
         if (ValidadorAcceso.validarCorreo(correo) != null) {
             put(CampoRegistro.CORREO, "Ingresa un correo electrónico válido")

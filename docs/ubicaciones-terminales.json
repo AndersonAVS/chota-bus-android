@@ -1,0 +1,49 @@
+{
+  "terminales": [
+    {
+      "id": 3,
+      "ciudad": "Chota",
+      "codigo_recibido": "C9P3+QG Chota",
+      "codigo_completo": "6753C9P3+QG",
+      "latitud": "-6.563063",
+      "longitud": "-78.646188",
+      "fuente": "Proporcionado por el usuario; centro de celda OLC",
+      "fecha": "2026-11-13"
+    },
+    {
+      "id": 2,
+      "ciudad": "Cajamarca",
+      "codigo_recibido": "RFXG+CQ Cajamarca",
+      "codigo_completo": "6743RFXG+CQ",
+      "latitud": "-7.151438",
+      "longitud": "-78.523063",
+      "fuente": "Proporcionado por el usuario; centro de celda OLC",
+      "fecha": "2026-11-13"
+    },
+    {
+      "id": 1,
+      "ciudad": "Jaén",
+      "codigo_recibido": "76J2+9W Jaén",
+      "codigo_completo": "676376J2+9W",
+      "latitud": "-5.719063",
+      "longitud": "-78.797688",
+      "fuente": "Proporcionado por el usuario; centro de celda OLC",
+      "fecha": "2026-11-13"
+    },
+    {
+      "id": 4,
+      "ciudad": "Lajas",
+      "codigo_recibido": "C7R8+238, 06601, Peru",
+      "codigo_completo": "6753C7R8+238",
+      "latitud": "-6.559963",
+      "longitud": "-78.734797",
+      "fuente": "Proporcionado por el usuario; centro de celda OLC",
+      "fecha": "2026-11-13"
+    }
+  ],
+  "lajas": {
+    "estado": "codigo_corregido_recibido",
+    "codigo_descartado": "C9Q2+3M Chota",
+    "codigo_corregido": "6753C7R8+238"
+  }
+}

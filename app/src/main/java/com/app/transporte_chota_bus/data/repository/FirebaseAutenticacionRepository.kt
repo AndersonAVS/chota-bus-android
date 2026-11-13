@@ -1,6 +1,7 @@
 package com.app.transporte_chota_bus.data.repository
 
 import com.app.transporte_chota_bus.data.model.Usuario
+import com.app.transporte_chota_bus.domain.validation.ValidadorPerfil
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.EmailAuthProvider
@@ -101,6 +102,26 @@ class FirebaseAutenticacionRepository(
             auth.signOut()
             null
         }
+    }
+
+    // Guarda solo los campos editables del perfil del usuario actual.
+    override suspend fun actualizarPerfil(
+        nombreCompleto: String, dni: String, celular: String
+    ): Result<Usuario> = ejecutar {
+        val errores = ValidadorPerfil.validar(nombreCompleto, dni, celular)
+        if (errores.isNotEmpty()) throw ErrorDeAutenticacion(errores.values.first())
+        val identidad = auth.currentUser
+            ?: throw ErrorDeAutenticacion("Tu sesión ha finalizado. Vuelve a iniciar sesión.")
+        val anterior = leerPerfil(identidad)
+        val actualizado = anterior.copy(
+            nombreCompleto = nombreCompleto.trim(), dni = dni.trim(), celular = celular.trim()
+        )
+        firestore.collection("usuarios").document(identidad.uid).update(mapOf(
+            "nombreCompleto" to actualizado.nombreCompleto,
+            "dni" to actualizado.dni,
+            "celular" to actualizado.celular
+        )).esperar()
+        actualizado
     }
 
     override suspend fun cerrarSesion(): Result<Unit> = ejecutar { auth.signOut() }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.app.transporte_chota_bus.di.ContenedorDependencias
 import com.app.transporte_chota_bus.ui.inicio.InicioViewModel
+import com.app.transporte_chota_bus.ui.perfil.PerfilViewModel
 
 // Entrega el repositorio a cada ViewModel sin conectarlo directamente a Firebase.
 object AutenticacionViewModelFactory : ViewModelProvider.Factory {
@@ -15,6 +16,7 @@ object AutenticacionViewModelFactory : ViewModelProvider.Factory {
             RegistroViewModel::class.java -> RegistroViewModel(repository)
             RecuperarContrasenaViewModel::class.java -> RecuperarContrasenaViewModel(repository)
             InicioViewModel::class.java -> InicioViewModel(repository)
+            PerfilViewModel::class.java -> PerfilViewModel(repository)
             else -> throw IllegalArgumentException("ViewModel no reconocido")
         } as T
     }

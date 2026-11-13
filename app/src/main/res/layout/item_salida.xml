@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+    android:layout_marginBottom="4dp" android:padding="14dp" android:orientation="vertical"
+    android:background="@color/white" android:elevation="2dp">
+    <!-- Datos de la salida, precio y terminales recibidos del servidor. -->
+    <TextView android:id="@+id/salida_horario" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textSize="18sp" android:textStyle="bold" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/salida_precio" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:padding="8dp" android:background="@color/chota_yellow" android:textColor="@color/chota_text" />
+    <TextView android:id="@+id/salida_terminales" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:textColor="@color/chota_text" />
+    <Button android:id="@+id/btn_ver_terminales" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:minHeight="48dp" android:layout_marginTop="8dp" android:backgroundTint="@color/chota_red"
+        android:text="@string/viaje_ver_terminales" android:textAllCaps="false" android:textColor="@color/white" />
+</LinearLayout>

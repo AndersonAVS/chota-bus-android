@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chota_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Encabezado y regreso a Inicio -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/chota_purple"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:id="@+id/btn_volver_perfil"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/perfil_volver"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="CHOTA BUS"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space android:layout_width="48dp" android:layout_height="1dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/perfil_titulo"
+            android:textColor="@color/chota_purple"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/perfil_descripcion"
+            android:textColor="@color/chota_muted"
+            android:textSize="15sp" />
+
+        <!-- Consulta y edición de los datos personales -->
+        <LinearLayout
+            android:id="@+id/formulario_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/input_nombre_perfil"
+                android:text="@string/perfil_nombre"
+                android:textColor="@color/chota_text"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_nombre_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:autofillHints="name"
+                android:backgroundTint="@color/chota_purple"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                android:maxLength="200"
+                android:singleLine="true"
+                android:textColor="@color/chota_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:labelFor="@id/input_dni_perfil"
+                android:text="@string/perfil_dni"
+                android:textColor="@color/chota_text"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_dni_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="@color/chota_purple"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="8"
+                android:singleLine="true"
+                android:textColor="@color/chota_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:labelFor="@id/input_celular_perfil"
+                android:text="@string/perfil_celular"
+                android:textColor="@color/chota_text"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_celular_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:autofillHints="phone"
+                android:backgroundTint="@color/chota_purple"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="9"
+                android:singleLine="true"
+                android:textColor="@color/chota_text"
+                android:textSize="16sp" />
+
+            <!-- El correo identifica la cuenta y se muestra solo para consulta -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:labelFor="@id/texto_correo_perfil"
+                android:text="@string/perfil_correo"
+                android:textColor="@color/chota_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_correo_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/chota_muted"
+                android:textIsSelectable="true"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_guardar_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/chota_red"
+                android:text="@string/perfil_guardar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Estado de consulta y guardado -->
+        <ProgressBar
+            android:id="@+id/progreso_perfil"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/perfil_procesando"
+            android:indeterminateTint="@color/chota_purple" />
+
+        <TextView
+            android:id="@+id/texto_estado_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:accessibilityLiveRegion="polite"
+            android:textColor="@color/chota_purple"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_reintentar_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/chota_purple"
+            android:text="@string/reintentar_sesion"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

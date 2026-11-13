@@ -31,3 +31,13 @@ Las pruebas unitarias verifican la coordinación del ViewModel mediante un repos
 ## Compatibilidad de dependencias
 
 Se utiliza Firebase BoM 34.7.0 (Authentication 24.0.1 y Firestore 26.0.2) para conservar compatibilidad con Kotlin 2.2.10. BoM 35.2.0 resolvió Authentication 25.0.0, cuya metadata Kotlin 2.4.0 no es compatible con el compilador actual. Una actualización futura debe evaluarse y comprobarse conjuntamente.
+
+## Perfil de usuario HU004
+
+Inicio incluye Mi perfil. PerfilFragment presenta el formulario y PerfilViewModel conserva el borrador durante cambios de configuración. Nombre, DNI y celular se validan y se guardan en usuarios/{uid} con update de esos tres campos. UID, correo y fecha de creación se conservan. Las reglas existentes ya permiten esta operación al propietario, por lo que no se requiere ampliar permisos.
+
+El correo se presenta en un TextView de solo lectura. La confirmación aparece después de la respuesta del servidor. Un fallo conserva el borrador para reintentar y no se anuncia como éxito. Se bloquean envíos repetidos y el regreso durante un guardado. Tras guardar, Inicio recibe un resultado de fragmento y consulta de nuevo el perfil para refrescar el saludo.
+
+El borrador vive en el ViewModel; no se promete recuperarlo tras finalizar el proceso del sistema. Los casos de prueba utilizan un repositorio de prueba y no modifican cuentas reales.
+
+Prueba manual pendiente: abrir Mi perfil; verificar el correo de solo lectura; modificar datos válidos; guardar; comprobar Firestore y el saludo al regresar; reabrir para comprobar persistencia. También probar datos inválidos, conexión interrumpida y giro de pantalla. Verificar que un fallo no borre lo escrito.
